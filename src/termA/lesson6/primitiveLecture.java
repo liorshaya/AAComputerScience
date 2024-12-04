@@ -43,6 +43,6 @@ public class primitiveLecture {
         }
     }
 
-    // shaya is bot
+
 
 }
