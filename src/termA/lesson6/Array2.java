@@ -237,7 +237,7 @@ class Ex4{
         printBoardd(board);
         char winner = checkWinner(board);
         if(winner == 'X' || winner == 'O'){
-            System.out.println("YooHoo " + winner + " is the winner!");
+            System.out.println("Yoo Hoo " + winner + " is the winner!");
             return true;
         }
         return false;
