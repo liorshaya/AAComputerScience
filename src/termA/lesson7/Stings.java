@@ -243,8 +243,8 @@ class Exe13{
         char[] array = {'A','I','O'};
         System.out.println(mostCommonCharInArray("I want it, I got it", array));
     }
-    public static char mostCommonCharInArray(String text , char[] charCheck){
 
+    public static char mostCommonCharInArray(String text , char[] charCheck){
         String lowerCase = text.toLowerCase();
         char maxChar = text.charAt(0);
         String charAsString = "";
@@ -272,5 +272,47 @@ class Exe13{
 }
 
 class Exe14{
+    public static void main(String[] args) {
+    String text = "Race  .,car";
+        System.out.println(flindromString(text));
+    }
+    public static boolean flindromString(String text){
+        text = text.toLowerCase();
+        String[] avoid = {" " , "\\." , ","};
+        for (int i = 0; i < avoid.length; i++) {
+            text = text.replaceAll(avoid[i], "");
+        }
 
+        for (int i = 0; i < text.length(); i++) {
+            if(text.charAt(i) != text.charAt(text.length() - i -1)){
+                return false;
+            }
+        }
+        return true;
+    }
 }
+
+class Exe15{
+    public static void main(String[] args) {
+
+        //System.out.println(printFirstCharInWord("Hello from Java"));
+        System.out.println(printFirstCharInWord("I want it, I got it"));
+    }
+
+    public static String printFirstCharInWord(String text){
+        String newStringResult = "";
+        String[] words = text.split(" ");
+
+        for (int i = 0; i < words.length; i++) {
+            if (!words[i].isEmpty()) {
+                char firstChar = words[i].charAt(0);
+                if (newStringResult.indexOf(firstChar) == -1 ) {
+                    newStringResult += firstChar;
+                }
+            }
+        }
+
+    return newStringResult;
+    }
+}
+
