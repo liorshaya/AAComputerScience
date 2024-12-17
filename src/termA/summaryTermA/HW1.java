@@ -36,11 +36,11 @@ public class HW1 {
 
         int sum = 0;
         for (int i = 0; i < oneTwoArray.length; i++) {
-            int result = idArray[i] * oneTwoArray[i];
-            if(result > 9 ){
-                result = result / 10 + result % 10;
+            int multiplyArrays = idArray[i] * oneTwoArray[i];
+            if(multiplyArrays > 9 ){
+                multiplyArrays = multiplyArrays / 10 + multiplyArrays % 10;
             }
-            sum += result;
+            sum += multiplyArrays;
         }
         return sum % 10 == 0;
     }
