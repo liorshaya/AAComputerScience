@@ -12,7 +12,7 @@ public class Main {
         children[1] = new Child();
         children[1].boy = false;
         children[1].year = 2012;
-        children[1].month = 4;
+        children[1].month = 2;
 
 
         children[2] = new Child();
@@ -23,17 +23,19 @@ public class Main {
 
         children[3] = new Child();
         children[3].boy = true;
-        children[3].year = 2012;
-        children[3].month = 7;
+        children[3].year = 2010;
+        children[3].month = 2;
 
         children[4] = new Child();
         children[4].boy = false;
         children[4].year = 2012;
-        children[4].month = 4;
+        children[4].month = 1;
 
 
         countBoyGirlInYear(children ,2012);
         printHighestMonthBoyLowestGirlsMonth(children);
+
+        System.out.println(checkWhichAvgBigger(children));
 
     }
 
@@ -64,37 +66,64 @@ public class Main {
         int currentLowMonthGirl = 0;
 
         for (int i = 0; i < array.length; i++) {
-            int counter = 1;
+            int boyCounter = 0;
+            int girlCounter = 0;
             for (int j = 0; j < array.length; j++) {
-                if(array[i].boy && i != j){
+                if(array[i].boy){
                     if (array[i].month == array[j].month){
-                        counter++;
+                        boyCounter++;
+                    }
+                }
+                else{
+                    if (array[i].month == array[j].month){
+                        girlCounter++;
                     }
                 }
             }
-            if(counter > monthHighBoy){
-                monthHighBoy = counter;
+            if(boyCounter > monthHighBoy){
+                monthHighBoy = boyCounter;
                 currentHighMonthBoy = array[i].month;
             }
-        }
-
-        for (int i = 0; i < array.length; i++) {
-            int counter = 1;
-            for (int j = 0; j < array.length; j++) {
-                if(!array[i].boy && i != j){
-                    if (array[i].month == array[j].month){
-                        counter++;
-                    }
-                }
-            }
-            if(counter > monthLowGirl){
-                monthLowGirl = counter;
+            if(girlCounter > monthLowGirl){
+                monthLowGirl = girlCounter;
                 currentLowMonthGirl = array[i].month;
             }
         }
+
         System.out.println("Month with most boys: " + currentHighMonthBoy);
         System.out.println("Month with most girls: " + currentLowMonthGirl);
 
+    }
+
+    public static int checkWhichAvgBigger(Child[] array){
+        int sumBoyYears = 0;
+        int sumGirlYears = 0;
+
+        int boyCount = 0;
+        int girlCount = 0;
+
+        for (int i = 0; i < array.length; i++) {
+            if(array[i].boy){
+                sumBoyYears += array[i].year;
+                boyCount++;
+            }
+            else{
+                sumGirlYears += array[i].year;
+                girlCount++;
+            }
+        }
+        double avgBoy = (double) sumBoyYears /boyCount;
+        double avgGirl = (double) sumGirlYears /girlCount;
+
+        if(avgBoy < avgGirl){
+            return 1;
+        }
+        else if (avgBoy > avgGirl){
+            return -1;
+        }
+        else {
+            return 0;
+        }
     }
 
 }
