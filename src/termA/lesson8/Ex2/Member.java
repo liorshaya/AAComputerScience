@@ -4,7 +4,7 @@ public class Member {
 
     String firstName;
     String lastName;
-    String team;
+    Team team;
     int yearsInCompany;
     int yearsInTech;
 
