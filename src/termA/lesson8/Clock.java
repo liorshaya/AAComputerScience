@@ -110,8 +110,8 @@ public class Clock {
         return -1;
     }
 
-    int secondsDiff(Clock other){
+    //int secondsDiff(Clock other){
 
-    }
+    //}
 
 }
