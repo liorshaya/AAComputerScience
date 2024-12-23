@@ -1,4 +1,4 @@
-package termA.lesson8.Ex1;
+package termA.lesson9.Ex1;
 
 public class Main {
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package termA.lesson8.Ex3;
+package termA.lesson9.Ex3;
 
 public class CityDelivery {
 
