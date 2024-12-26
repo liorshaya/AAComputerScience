@@ -3,9 +3,9 @@ package termA.lesson8;
 public class Main {
     public static void main(String[] args) {
         Clock clock = new Clock();
-        clock.hours = 7;
-        clock.minutes = 6;
-        clock.seconds = 4;
+        clock.hours = 6;
+        clock.minutes = 59;
+        clock.seconds = 59;
 
         Clock clock1 = new Clock();
         clock1.hours = 7;
@@ -33,9 +33,9 @@ public class Main {
         //int secondsDiff = clock.secondsDiff(clock1);
         //System.out.println(secondsDiff);
 
-        //clock.addSeconds(20000);
+        clock.addSeconds(53543);
         //clock.addMinutes(4000);
-        clock.addHours(200);
+        //clock.addHours(200);
     }
 
 }
