@@ -366,25 +366,25 @@ class Ex13{
 
 
 
-class Ex14{
+class Ex14 {
 
     public static void main(String[] args) {
 
-         Scanner scanner = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
 
         int attempt = selectDifficulty(scanner);
 
         int digit1, digit2, digit3, digit4 = 0;
 
 
-        do{
+        do {
             digit1 = generateRandomDigit();
             digit2 = generateRandomDigit();
             digit3 = generateRandomDigit();
             digit4 = generateRandomDigit();
-        }while(!isUniqueDigit(digit1, digit2 , digit3 , digit4));
+        } while (!isUniqueDigit(digit1, digit2, digit3, digit4));
 
-       // System.out.println("The code: "+ digit1 + digit2 + digit3 + digit4);
+        // System.out.println("The code: "+ digit1 + digit2 + digit3 + digit4);
 
         System.out.println("Welcome to the Secret Code Game!");
         System.out.println("Try to guess the secret 4-digit code. Each digit is between 1 and 6.");
@@ -392,19 +392,18 @@ class Ex14{
         boolean flagWin = false;
 
 
-
-        while(attempt > 0 && !flagWin){
+        while (attempt > 0 && !flagWin) {
             System.out.println("You have " + attempt + " attempts left.");
             System.out.println("Enter your guess: ");
             int guess = scanner.nextInt();
 
-            if(!validGuess(guess)){
+            if (!validGuess(guess)) {
                 System.out.println("you lost 2 attempts!");
-                attempt = attempt -2;
+                attempt = attempt - 2;
                 continue;
             }
 
-            int g4 = guess %10;
+            int g4 = guess % 10;
             guess /= 10;
             int g3 = guess % 10;
             guess /= 10;
@@ -412,44 +411,44 @@ class Ex14{
             guess /= 10;
             int g1 = guess;
 
-            int exactMatch = exactMatch(digit1,digit2,digit3,digit4,g1,g2,g3,g4);
-            int partialMatch = partialMatch(digit1,digit2,digit3,digit4,g1,g2,g3,g4);
+            int exactMatch = exactMatch(digit1, digit2, digit3, digit4, g1, g2, g3, g4);
+            int partialMatch = partialMatch(digit1, digit2, digit3, digit4, g1, g2, g3, g4);
 
-            if(exactMatch == 4){
+            if (exactMatch == 4) {
                 flagWin = true;
                 System.out.println("Congratulations! You guessed the secret code!");
-            }
-            else{
+            } else {
                 System.out.println("Exact match: " + exactMatch + " Partial match: " + partialMatch);
                 attempt--;
             }
         }
 
-        if(!flagWin){
+        if (!flagWin) {
             System.out.println("You used all attempts!");
             System.out.println("The secret code is:" + digit1 + digit2 + digit3 + digit4);
         }
 
 
     }
-    public static int generateRandomDigit(){
+
+    public static int generateRandomDigit() {
         Random random = new Random();
-        return random.nextInt(1,7);
+        return random.nextInt(1, 7);
 
     }
 
-    public static boolean isUniqueDigit(int d1, int d2, int d3, int d4){
-        if(d1 != d2 && d1 != d3 && d1 != d4 && d2 != d3 && d2 != d4 && d3 != d4){
+    public static boolean isUniqueDigit(int d1, int d2, int d3, int d4) {
+        if (d1 != d2 && d1 != d3 && d1 != d4 && d2 != d3 && d2 != d4 && d3 != d4) {
             return true;
         }
         return false;
     }
 
-    public static int selectDifficulty(Scanner scanner){
+    public static int selectDifficulty(Scanner scanner) {
         Random random = new Random();
         int attempt = 0;
 
-        while(attempt == 0){
+        while (attempt == 0) {
             System.out.println("Enter the difficulty level:");
             System.out.println("Level 1: Easy (20 attempts)");
             System.out.println("Level 2: Medium (15 attempts)");
@@ -457,27 +456,23 @@ class Ex14{
             System.out.println("Level 4: Surprise (Random attempts)");
 
             int choice = scanner.nextInt();
-            if(choice == 1){
+            if (choice == 1) {
                 attempt = 20;
-            }
-            else if(choice == 2){
+            } else if (choice == 2) {
                 attempt = 15;
-            }
-            else if(choice == 3){
+            } else if (choice == 3) {
                 attempt = 10;
-            }
-            else if(choice == 4){
-                attempt = random.nextInt(5,26);
-            }
-            else{
+            } else if (choice == 4) {
+                attempt = random.nextInt(5, 26);
+            } else {
                 System.out.println("Invalid level, try again.");
             }
         }
         return attempt;
     }
 
-    public static boolean validGuess(int guess){
-        if(guess < 1111 || guess > 6666){
+    public static boolean validGuess(int guess) {
+        if (guess < 1111 || guess > 6666) {
             return false;
         }
 //        int g4 = guess % 10;
@@ -490,18 +485,17 @@ class Ex14{
 
         int counter = 3;
         for (int i = 0; i < 4; i++) {
-            int g = guess%10;
-            if(g>6 || g<1){
+            int g = guess % 10;
+            if (g > 6 || g < 1) {
                 return false;
             }
             guess /= 10;
             int g2 = guess;
             for (int j = 0; j < counter; j++) {
-                int g1 = g2%10;
-                if(g == g1){
+                int g1 = g2 % 10;
+                if (g == g1) {
                     return false;
-                }
-                else {
+                } else {
                     g2 /= 10;
                 }
             }
@@ -519,34 +513,35 @@ class Ex14{
 //        return true;
     }
 
-    public static int exactMatch(int d1, int d2, int d3, int d4, int g1, int g2, int g3, int g4){
+    public static int exactMatch(int d1, int d2, int d3, int d4, int g1, int g2, int g3, int g4) {
         int counter = 0;
-        if(d1 == g1){
+        if (d1 == g1) {
             counter++;
         }
-        if(d2 == g2){
+        if (d2 == g2) {
             counter++;
         }
-        if(d3 == g3){
+        if (d3 == g3) {
             counter++;
         }
-        if(d4 == g4){
+        if (d4 == g4) {
             counter++;
         }
         return counter;
     }
-    public static int partialMatch(int d1, int d2, int d3, int d4, int g1, int g2, int g3, int g4){
-        int counter =0;
-        if(g1 == d2 || g1 == d3 || g1 == d4){
+
+    public static int partialMatch(int d1, int d2, int d3, int d4, int g1, int g2, int g3, int g4) {
+        int counter = 0;
+        if (g1 == d2 || g1 == d3 || g1 == d4) {
             counter++;
         }
-        if(g2 == d1 || g2 == d3 || g2 == d4){
+        if (g2 == d1 || g2 == d3 || g2 == d4) {
             counter++;
         }
-        if(g3 == d1 || g3 == d2 || g3 == d4){
+        if (g3 == d1 || g3 == d2 || g3 == d4) {
             counter++;
         }
-        if(g4 == d1 || g4 == d2 || g4 == d3){
+        if (g4 == d1 || g4 == d2 || g4 == d3) {
             counter++;
         }
         return counter;

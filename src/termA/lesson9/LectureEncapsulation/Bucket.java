@@ -82,16 +82,23 @@ public class Bucket {
         this.current = x;
     }
 
-    public void setCapacity(int x){
-        this.capacity = x;
+
+    public void setCapacity(int capacity){
+        this.capacity = capacity;
     }
 
     public void fill(Bucket other){
-        int checkLitersOut = this.capacity - this.current;
         if(!isFull()){
-            this.current += other.current; // this.curr10 ,other.curr25 ,after fill15
-            other.current = other.current - checkLitersOut;
+            for (int i = this.current; i <= this.capacity; i++) {
+                if(other.current > 0 && this.current != this.capacity){
+                    this.current++;
+                    other.current--;
+                }
+
+            }
         }
     }
+
+
 
 }
