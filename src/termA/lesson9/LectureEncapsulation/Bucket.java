@@ -82,6 +82,14 @@ public class Bucket {
         this.current = x;
     }
 
+    public int getCapacity(){
+        return this.capacity;
+    }
+
+    public int getCurrent(){
+        return this.current;
+    }
+
 
     public void setCapacity(int capacity){
         this.capacity = capacity;
