@@ -1,4 +1,4 @@
-package termA.lesson9.Ex1;
+package termA.lesson10.Ex1;
 
 public class Child {
 

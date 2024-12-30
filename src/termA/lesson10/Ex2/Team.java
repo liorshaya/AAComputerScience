@@ -1,4 +1,4 @@
-package termA.lesson9.Ex2;
+package termA.lesson10.Ex2;
 
 public class Team {
 
