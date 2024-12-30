@@ -7,16 +7,16 @@ public class Main {
 
         Bucket[] buckets = new Bucket[3];
         buckets[0] = new Bucket();
-        buckets[0].setCapacity(100);
-        buckets[0].setCurrent(60);
+        buckets[0].setCapacity(5);
+        buckets[0].setCurrent(3);
 
         buckets[1] = new Bucket();
-        buckets[1].setCapacity(100);
-        buckets[1].setCurrent(60);
+        buckets[1].setCapacity(7);
+        buckets[1].setCurrent(4);
 
         buckets[2] = new Bucket();
-        buckets[2].setCapacity(100);
-        buckets[2].setCurrent(60);
+        buckets[2].setCapacity(6);
+        buckets[2].setCurrent(3);
 
 
         //bucket2.setCapacity(30);
@@ -36,8 +36,8 @@ public class Main {
         //System.out.println(bucket);
         //magic();
 
-        System.out.println(reduceAmountInBuckets(buckets , 40));
-
+        //System.out.println(reduceAmountInBuckets(buckets , 40));
+        printArray(fillExactAmount(buckets , 10));
     }
 
      public static void magic(){
@@ -71,22 +71,49 @@ public class Main {
 
         for (int i = 0; i < buckets.length; i++) {
             if(buckets[i].percent() > max){
-                float spillWater = (buckets[i].getCurrent() * (buckets[i].percent() - (max/2))) / 100;
+                float spillWater = (buckets[i].getCapacity() * max)/ 100;
+                float toRemove = buckets[i].getCurrent() - spillWater;
                 b.setCapacity(b.getCapacity() + buckets[i].getCapacity());
-                buckets[i].setCurrent((int)(buckets[i].getCurrent() - spillWater));
-                b.setCurrent((int)(b.getCurrent() + spillWater));
+                buckets[i].setCurrent((int)(buckets[i].getCurrent() - toRemove));
+                b.setCurrent((int)(b.getCurrent() + toRemove));
             }
         }
         return b;
     }
 
-//    public int[] fillExactAmount(Bucket[] buckets , int amount){
-//        for (int i = 0; i < buckets.length; i++) {
-//            if(buckets[i].getCurrent() >= buckets[i].getCapacity() / 2){
-//
-//            }
-//        }
-//    }
+    public static int[] fillExactAmount(Bucket[] buckets , int amount){
+        int sum = 0;
+        int count = 0;
+        for (int i = 0; i < buckets.length; i++) {
+            if(buckets[i].getCurrent() >= buckets[i].getCapacity() / 2){ // 5 3 7 4 3 2
+                 sum += buckets[i].getCurrent();
+                 count++;
+            }
+        }
+        if(sum != amount){
+            return new int[0];
+        }
+        int[] indexBuckets = new int[count];
+        int index = 0;
+        for (int i = 0; i < buckets.length; i++) {
+            if(buckets[i].getCurrent() >= buckets[i].getCapacity() / 2){
+                indexBuckets[index] = i;
+                index++;
+            }
+        }
+        for (int i = 0; i < buckets.length; i++) {
+            buckets[i].spill();
+        }
+
+        return indexBuckets;
+    }
+
+    public static void printArray(int[] array){
+        for (int i = 0; i < array.length; i++) {
+            System.out.print(array[i] + " ");
+        }
+    }
+
 
 
 }
