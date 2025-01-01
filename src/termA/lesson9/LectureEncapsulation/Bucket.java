@@ -102,7 +102,6 @@ public class Bucket {
                     this.current++;
                     other.current--;
                 }
-
             }
         }
     }
