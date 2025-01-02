@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Array2 {
     //Ex1
     public static void main(String[] args) {
-        int[] array = {4,5,6,5,7,8,33};
+        int[] array = {1,1,1,0,4,5,0,6,5,0,0,7,8,33};
         int[] result = arrayWithoutDuplicate(array);
         System.out.print("Old Array: ");
         printArray(array);
