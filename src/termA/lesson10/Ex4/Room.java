@@ -62,4 +62,24 @@ public class Room {
         }
 
     }
+
+    public String toString(){
+        String roomAvailable;
+        if(getAvailable()){
+             roomAvailable= "Available";
+        }
+        else{
+            roomAvailable = "Not available";
+        }
+        String typeRoom;
+        if(getType() ==1){
+            typeRoom = "Regular";
+        } else if (getType() == 2) {
+            typeRoom = "Upgraded";
+        }
+        else{
+            typeRoom = "Luxury";
+        }
+        return "Room Number: " + this.number + " ,Type room: " + typeRoom + " and the room is "+ roomAvailable + ".";
+    }
 }
