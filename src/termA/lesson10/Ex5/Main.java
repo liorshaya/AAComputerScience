@@ -13,21 +13,15 @@ public class Main {
         Item item9 = new Item("Macbook Air",4700,13);
         Item item10 = new Item("Ipad Air",3200,40);
 
-        Client client1 = new Client();
-        Client client2 = new Client();
-        Client client3 = new Client();
-
-        Item[] itemsToBuy1 = {item1,item2,item6};
+        Item[] itemsToBuy1 = {item3,item2,item6};
         Item[] itemsToBuy2 = {item4,item7,item3};
         Item[] itemsToBuy3 = {item5,item9,item10};
 
-        client1.setToBuy(itemsToBuy1);
-        client2.setToBuy(itemsToBuy2);
-        client3.setToBuy(itemsToBuy3);
+        Client client1 = new Client("Avi Bavi" , itemsToBuy1 , 15000);
+        Client client2 = new Client("Ron Don" , itemsToBuy2 , 13200);
+        Client client3 = new Client("Elon Melon" , itemsToBuy3 , 20000);
 
-        client1.setBudget(14819);
-        client2.setBudget(12000);
-        client3.setBudget(11000);
+
 
         Client[] clients = {client1,client2,client3};
 
@@ -35,16 +29,26 @@ public class Main {
         System.out.println("There is a shortage of " + item1.decrementCount(1) + " items.");
 
         System.out.println(client1.hasEnoughBudget());
+        //System.out.println(client1);
+
+        Client clientStat = cheapestList(clients);
+        System.out.println(clientStat);
     }
 
-//    public static Client cheapestList(Client[] client){
-//        Item[] currClientBudget = client[1].getToBuy();
-//        Item[] lowestClientBudget = client[0].getToBuy();
-//        for (int i = 0; i < client.length; i++) {
-//            if (currClientBudget  lowestClientBudget) {
-//                currClientBudget = client[i].getToBuy();
-//            }
-//        }
-//    }
+    public static Client cheapestList(Client[] client){
+        double totalLowerClient = client[0].sumItemsPriceClient();
+        Client clientStat = client[0];
+        double currLowerClient;
+        for (int i = 1; i < client.length; i++) {
+            currLowerClient = client[i].sumItemsPriceClient();
+            if (currLowerClient < totalLowerClient){
+                totalLowerClient = currLowerClient;
+                clientStat = client[i];
+            }
+        }
+        return clientStat;
+    }
+
+
 
 }

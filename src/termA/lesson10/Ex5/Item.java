@@ -37,4 +37,8 @@ public class Item {
             return difference;
         }
     }
+
+    public String toString(){
+        return "Product name: " + this.name + " cost: " + this.cost + "₪,";
+    }
 }
