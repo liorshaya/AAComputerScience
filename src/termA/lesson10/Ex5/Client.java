@@ -11,6 +11,10 @@ public class Client {
         this.budget =budget;
     }
 
+    public String getName(){
+        return this.name;
+    }
+
     public Item[] getToBuy(){
         return this.toBuy;
     }

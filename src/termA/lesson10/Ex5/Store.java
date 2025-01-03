@@ -10,13 +10,24 @@ public class Store {
     }
 
     public void printPurchaseListForClient(Client client){
-        for (int i = 0; i < this.clients.length; i++) {
-            if(this.clients[i] == client){
-                Item[] items = clients[i].getToBuy();
-                for (int j = 0; j < items.length; j++) {
-                    System.out.println(items[j]);
+        int budget = client.getBudget();
+
+        for (int i = 0; i < items.length; i++) {
+            double sum = items[i].getCost();
+            String combination = items[i].getName() + " cost: " + items[i].getCost() + "₪, ";
+            for (int j = i+1; j < items.length; j++) {
+                if(sum + items[j].getCost() <= budget){
+                    sum += items[j].getCost();
+                    combination += items[j].getName() + " cost: " + items[j].getCost() + "₪, ";
+
+                }
+                if(sum == budget){
+                    System.out.println("The client: " + client.getName() + ":" + combination);
+                    return;//There is a problem with the function.
                 }
             }
         }
+        System.out.println("No combination fount for " + client.getName() + " at budget of " + client.getBudget() + ".");
+
     }
 }

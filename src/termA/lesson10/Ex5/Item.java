@@ -11,6 +11,10 @@ public class Item {
         this.count = count;
     }
 
+    public String getName(){
+        return this.name;
+    }
+
     public void setCost(double cost){
         this.cost = cost;
     }
