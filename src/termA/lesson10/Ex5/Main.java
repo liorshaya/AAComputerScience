@@ -21,9 +21,16 @@ public class Main {
         Client client2 = new Client("Ron Don" , itemsToBuy2 , 13200);
         Client client3 = new Client("Elon Melon" , itemsToBuy3 , 20000);
 
-
-
         Client[] clients = {client1,client2,client3};
+        Item[] items = {item1,item2,item3,item4,item5,item6,item7,item8,item9,item10};
+
+        Store store = new Store(clients , items);
+
+        store.printPurchaseListForClient(client1);
+
+
+
+
 
         System.out.println(item1.existInInventory());
         System.out.println("There is a shortage of " + item1.decrementCount(1) + " items.");
@@ -33,6 +40,8 @@ public class Main {
 
         Client clientStat = cheapestList(clients);
         System.out.println(clientStat);
+
+        store.printPurchaseListForClient(client1);
     }
 
     public static Client cheapestList(Client[] client){
