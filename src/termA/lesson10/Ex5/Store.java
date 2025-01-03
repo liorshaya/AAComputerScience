@@ -23,7 +23,7 @@ public class Store {
                 }
                 if(sum == budget){
                     System.out.println("The client: " + client.getName() + ":" + combination);
-                    return;//There is a problem with the function.
+                    return;
                 }
             }
         }
