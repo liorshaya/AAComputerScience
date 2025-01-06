@@ -74,4 +74,57 @@ public class User {
         }
         return false;
     }
+
+    public int countMutualConnections(){
+        int counter = 0;
+        for (int i = 0; i < this.following.length; i++) {
+            for (int j = 0; j < this.followers.length; j++) {
+                if(this.following[i] == this.followers[j]){
+                    counter++;
+                }
+            }
+        }
+        return counter;
+    }
+
+    public void removeFakeUsers(){
+        int count = 0;
+        for (int i = 0; i < following.length; i++) {
+            User currUser = this.followers[i];
+            if(!this.following[i].isValidName()){
+               count++;
+           }
+           if(this.following[i].imagesCount == 0) {
+               count++;
+           }
+           if(this.following[i].videosCount == 0){
+               count++;
+           }
+           if(this.following[i].countMutualConnections() == 0){
+               count++;
+           }
+           if(count >= 3){
+               User[] newFollowing = new User[this.following.length - 1];
+               for (int j = 0; j < this.following.length; j++) {
+                   if (this.following[i] == currUser){
+                       continue;
+                   }
+                   newFollowing[i] = this.following[i];
+               }
+               User[] newFollowers = new User[this.followers.length - 1];
+               boolean isInFollowers = false;
+               for (int j = 0; j < this.following.length; j++) {
+                   if (this.followers[j] == currUser){
+                       isInFollowers = true;
+                       continue;
+                   }
+                   newFollowers[j] = this.followers[j];
+               }
+               if (isInFollowers){
+                   this.followers = newFollowers;
+               }
+
+           }
+       }
+    }
 }

@@ -3,7 +3,7 @@ package termA.lesson10.Exe1;
 public class Main {
     public static void main(String[] args) {
         User user1 = new User("John", "Doe", 25, 10, 10, new User[0], new User[0]);
-        User user2 = new User("Alice", "Smith", 22, 8, 3, new User[0], new User[0]);
+        User user2 = new User("Alice3", "Smith", 22, 0, 0, new User[0], new User[0]);
         User user3 = new User("Bob", "Brown", 30, 5, 2, new User[0], new User[0]);
         User user4 = new User("Emma", "Johnson", 27, 6, 7, new User[0], new User[0]);
         User user5 = new User("Liam", "Davis", 28, 15, 4, new User[0], new User[0]);
@@ -13,8 +13,8 @@ public class Main {
         User user9 = new User("Lucas", "Taylor", 29, 7, 6, new User[0], new User[0]);
         User user10 = new User("Mia", "Anderson", 20, 11, 3, new User[0], new User[0]);
 
-        user1.setFollowing(new User[]{user2, user3});
-        user1.setFollowers(new User[]{user1, user2,user3,user4,user5,user6,user7,user8,user9,user10,user2});
+        user1.setFollowing(new User[]{user2, user3,user4});
+        user1.setFollowers(new User[]{user2,user3,user4,user5,user6,user7,user8,user9,user10});
 
         user2.setFollowing(new User[]{user1, user3});
         user2.setFollowers(new User[]{user5, user7});
@@ -44,13 +44,16 @@ public class Main {
         user10.setFollowers(new User[]{user8, user9});
 
         boolean checkValidUsername = user1.isValidName();
-        System.out.println(checkValidUsername);
+        System.out.println("Is valid name?: " + checkValidUsername);
 
         boolean checkVip = user1.isVip();
-        System.out.println(checkVip);
+        System.out.println("Is VIP user? :" + checkVip);
+
+        int manualConnection = user1.countMutualConnections();
+        System.out.println("Manual connections: " + manualConnection);
 
 
-
+        user1.removeFakeUsers();
 
         User[] users = {user1, user2, user3, user4, user5, user6, user7, user8, user9, user10};
     }
