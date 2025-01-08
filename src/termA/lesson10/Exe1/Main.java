@@ -14,7 +14,7 @@ public class Main {
         User user10 = new User("Mia", "Anderson", 20, 11, 3, new User[0], new User[0]);
 
         user1.setFollowing(new User[]{user2, user3,user4});
-        user1.setFollowers(new User[]{user2,user3,user4,user5,user6,user7,user8,user9,user10});
+        user1.setFollowers(new User[]{user2,user3,user4,user5,user6,user7,user8,user9,user10,user9,user9,user9,user9,user9,user9,user9,user9,user9,user9,user9,user9,user9,user9,user9,user9,user9,user9,user9,user9,user9,user9,user9,user9,user9,user9,user9,user9,user9,user9,user9,user9,user9,user9,user9,user9,user9,user9,user9,user9,user9});
 
         user2.setFollowing(new User[]{user1, user3});
         user2.setFollowers(new User[]{user5, user7});
@@ -43,6 +43,12 @@ public class Main {
         user10.setFollowing(new User[]{user6, user8});
         user10.setFollowers(new User[]{user8, user9});
 
+
+        System.out.println(user1);
+
+        boolean checkIsPopular = user1.isPopular();
+        System.out.println(checkIsPopular);
+
         boolean checkValidUsername = user1.isValidName();
         System.out.println("Is valid name?: " + checkValidUsername);
 
@@ -51,6 +57,8 @@ public class Main {
 
         int manualConnection = user1.countMutualConnections();
         System.out.println("Manual connections: " + manualConnection);
+
+
 
 
         user1.removeFakeUsers();

@@ -37,7 +37,35 @@ public class User {
         this.followers = followers;
     }
 
+    public String toString(){
+        String validation = "";
+        if(isValidName()){
+            validation = "Username is valid.";
+        }
+        else {
+            validation = "Username is not valid";
+        }
+        String popularUser = "";
+        if(isPopular()){
+            popularUser = "Yes.";
+        }
+        else {
+            popularUser = "No.";
+        }
+        return "Personal Details: " + this.firstName + " " + this.lastName + ", age: " + this.age + ", is valid: " + validation +
+                "\nAccount Details: Images - " + this.imagesCount + ", Videos: " + this.videosCount + " is popular: " + popularUser;
+    }
 
+    public boolean isPopular(){
+        int count = 0;
+        for (int i = 0; i < this.followers.length; i++) {
+            count++;
+        }
+        if(count >= 50){
+            return true;
+        }
+        return false;
+    }
 
     public boolean isValidName(){
         for (int i = 0; i < this.firstName.length(); i++) {
