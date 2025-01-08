@@ -38,10 +38,9 @@ public class LottoForm {
 
         Random rnd = new Random();
         Scanner scn = new Scanner(System.in);
-        boolean checkAuto = rnd.nextBoolean();
 
 
-        if(checkAuto){
+        if(auto){
             for (int i = 0; i < this.numbers.length; i++) {
                 this.numbers[i] = rnd.nextInt(37) + 1;
             }

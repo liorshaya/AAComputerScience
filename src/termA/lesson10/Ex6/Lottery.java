@@ -7,6 +7,7 @@ public class Lottery {
     private int[] winningNumbers;
     private int winningStrong;
 
+
     public LottoForm[] getForms(){
         return this.forms;
     }
@@ -42,14 +43,21 @@ public class Lottery {
         this.winningStrong = rnd.nextInt(7) + 1;
     }
 
-//    public LottoForm[] getWinners(){
-//        randomizeWinningNumbers();
-//        int counter = 0;
-//        for (int i = 0; i < this.forms.length; i++) {
-//            if(this.forms[i].getNumbers() == winningNumbers && this.forms[i].getStrong() == winningStrong){
-//                this.forms[i]
-//            }
-//
-//        }
-//    }
+    public LottoForm[] getWinners(){
+        randomizeWinningNumbers();
+        int counter = 0;
+        for (int i = 0; i < this.forms.length; i++) {
+            if(this.forms[i].getNumbers() == winningNumbers && this.forms[i].getStrong() == winningStrong){
+                counter++;
+            }
+        }
+        LottoForm[] lotoFormArray = new LottoForm[counter];
+        int index = 0;
+        for (int i = 0; i < this.forms.length; i++) {
+            if(this.forms[i].getNumbers() == winningNumbers && this.forms[i].getStrong() == winningStrong){
+                lotoFormArray[index] = this.forms[i];
+            }
+        }
+        return lotoFormArray;
+    }
 }
