@@ -42,6 +42,7 @@ public class HW1 {
             }
             sum += multiplyArrays;
         }
+        
         return sum % 10 == 0;
     }
 }
