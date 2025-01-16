@@ -5,10 +5,14 @@ public class Main {
         Transaction tran1 = new Transaction(10000 , 4000 , 1);
         System.out.println(tran1);
 
-        BankAccount ba1 = new BankAccount("Lior", "Shaya");
+        BankAccount ba1 = new BankAccount("Lior", "Shaya" , 0);
         ba1.deposit(500);
         ba1.deposit(2400);
         ba1.withdraw(900);
         System.out.println(ba1);
+
+        BankSimulation bankSimulation = new BankSimulation(4);
+        bankSimulation.simulate();
+        System.out.println(bankSimulation);
     }
 }

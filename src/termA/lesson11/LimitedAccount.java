@@ -3,8 +3,8 @@ package termA.lesson11;
 public class LimitedAccount extends BankAccount{
     private int limit;
 
-    public LimitedAccount(String ownerFirstName , String ownerLastName , int limit){
-        super(ownerFirstName , ownerLastName);
+    public LimitedAccount(String ownerFirstName , String ownerLastName, int balance , int limit){
+        super(ownerFirstName , ownerLastName , balance);
         this.limit = limit;
     }
 

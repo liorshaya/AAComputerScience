@@ -6,10 +6,10 @@ public class BankAccount {
     private int balance;
     private Transaction[] history;
 
-    public BankAccount(String ownerFirstName , String ownerLastName ){
+    public BankAccount(String ownerFirstName , String ownerLastName , int balance){
         this.ownerFirstName = ownerFirstName;
         this.ownerLastName = ownerLastName;
-        this.balance = 0;
+        this.balance = balance;
         this.history = new Transaction[0];
     }
 

@@ -3,8 +3,8 @@ package termA.lesson11;
 public class OverdraftAccount extends BankAccount{
     private int creditLine;
 
-    public OverdraftAccount(String ownerFirstName , String ownerLastName , int creditLine){
-        super(ownerFirstName,ownerLastName);
+    public OverdraftAccount(String ownerFirstName , String ownerLastName ,int balance, int creditLine){
+        super(ownerFirstName, ownerLastName, balance);
         this.creditLine = creditLine;
     }
 
