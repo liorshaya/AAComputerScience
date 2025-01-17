@@ -73,9 +73,5 @@ public class BankSimulation {
                 break;
             }
         }
-
-
     }
-
-
 }
