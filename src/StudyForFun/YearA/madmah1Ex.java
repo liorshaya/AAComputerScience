@@ -109,3 +109,7 @@ class ex8{
         System.out.println(num/10);
     }
 }
+
+class ex9{
+
+}
