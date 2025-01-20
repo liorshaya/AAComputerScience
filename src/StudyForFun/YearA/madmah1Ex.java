@@ -111,5 +111,145 @@ class ex8{
 }
 
 class ex9{
+    public static void main(String[] args) {
+        Scanner scn = new Scanner(System.in);
+        System.out.println("Enter 2-digit number: ");
+        int userInput = scn.nextInt();
+        int unit = userInput % 10;
+        int num2 = userInput / 10;
+        System.out.println("the sum number is: " + (unit + num2));
+    }
+}
 
+class ex10{
+    public static void main(String[] args) {
+        Scanner scn = new Scanner(System.in);
+        System.out.println("Enter a number grater then 1000");
+        int userInput = scn.nextInt();
+        if(userInput > 1000){
+            System.out.println("Success");
+        }
+        else{
+            System.out.println("Failure");
+        }
+    }
+}
+
+class ex11{
+    public static void main(String[] args) {
+        Scanner scn = new Scanner(System.in);
+        int sum = 0;
+        for (int i = 0; i < 3; i++) {
+            System.out.println("Enter product price: ");
+            int userInput = scn.nextInt();
+            sum += userInput;
+        }
+        if(sum > 500){
+            System.out.println("The final price: " + sum * 0.9);
+        }
+        else{
+            System.out.println("price without discount: " + sum);
+        }
+    }
+}
+
+class ex12{
+    public static void main(String[] args) {
+        Scanner scn = new Scanner(System.in);
+        System.out.println("Enter 3 numbers: ");
+        int num1 = scn.nextInt();
+        int num2 = scn.nextInt();
+        int num3 = scn.nextInt();
+        int checkDiff1 = num2 - num1;
+        int checkDiff2 = num3 - num2;
+
+        if(checkDiff1 == checkDiff2){
+            System.out.println("Positive");
+        }
+        else {
+            System.out.println("Negative");
+        }
+    }
+}
+
+class ex13{
+    public static void main(String[] args) {
+        Scanner scn = new Scanner(System.in);
+        System.out.println("Enter your avg grade: ");
+        int avgGrade = scn.nextInt();
+
+        if(avgGrade > 90){
+            System.out.println("Perfect");
+        }
+        else if (avgGrade <= 90 && avgGrade >= 70) {
+            System.out.println("Good");
+        }
+        else{
+            System.out.println("Hard");
+        }
+    }
+}
+
+class ex14{
+    public static void main(String[] args) {
+        Scanner scn = new Scanner(System.in);
+        System.out.println("Enter a number: ");
+        int userInput = scn.nextInt();
+
+        if(userInput > 9 && userInput < 100){
+            int unit = userInput % 10;
+            int tens = userInput / 10;
+            System.out.println("The user input is 2-digit, sum of them is: " + (unit+tens));
+        }
+    }
+}
+
+class ex15{
+    public static void main(String[] args) {
+        Scanner scn = new Scanner(System.in);
+
+        System.out.println("Enter a number: ");
+        int userInput = scn.nextInt();
+
+        if(userInput > 99 && userInput < 1000){
+            int unit = userInput % 10;
+            int tens = (userInput / 10) % 10;
+            int hundreds = userInput / 100;
+
+            if(unit +1 == tens && tens+1 == hundreds || hundreds +1 == tens && tens+1 == unit){
+                System.out.println("Positive");
+            }
+            else{
+                System.out.println("Negative");
+            }
+        }
+    }
+}
+
+class ex16{
+    public static void main(String[] args) {
+        Scanner scn = new Scanner(System.in);
+        System.out.println("Enter your salary: ");
+        int salary = scn.nextInt();
+        System.out.println("Enter monthly goal: ");
+        int goal = scn.nextInt();
+        System.out.println("Enter sales: ");
+        int sales = scn.nextInt();
+
+        if(sales > goal){
+            System.out.println("The final salary with 75% is: " + salary * 1.75);
+        }
+        else if(sales > (goal/2)){
+            System.out.println("The final salary with 2000₪ bonus is " + (salary+2000));
+        }
+        else {
+            System.out.println("The final salary without bonus is: " + salary);
+        }
+    }
+}
+
+class ex17{
+    public static void main(String[] args) {
+
+    }
 }
