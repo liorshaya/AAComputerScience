@@ -547,6 +547,103 @@ class ex32{
 
 class ex33{
     public static void main(String[] args) {
+    int[] array = new int[10];
+    insertNumbersInArray(array);
+    insertOnlyEven(array);
 
     }
+    public static void insertNumbersInArray(int[] array){
+        Scanner scanner = new Scanner(System.in);
+        for (int i = 0; i < array.length; i++) {
+            System.out.println("Enter a number: ");
+            array[i] = scanner.nextInt();
+        }
+    }
+
+    public static void insertOnlyEven(int[] array){
+        for (int i = 0; i < array.length; i++) {
+            if(array[i] % 2 == 0){
+                System.out.print(array[i] + " ");
+            }
+        }
+    }
+}
+
+class ex34{
+    public static void main(String[] args) {
+        Scanner scn = new Scanner(System.in);
+        int[] array = new int[20];
+        System.out.println("Enter a number: ");
+        int userInput = scn.nextInt();
+        multiplyArray(array,userInput);
+        printArray(array);
+
+    }
+    public static void multiplyArray(int[] array, int num){
+        for (int i = 0; i < array.length; i++) {
+            array[i] = num * (i+1);
+        }
+    }
+    public static void printArray(int[] array){
+        for (int i = 0; i < array.length; i++) {
+            System.out.print(array[i] + " ");
+        }
+    }
+}
+
+class ex35{
+    public static void main(String[] args) {
+        int[] array = {2,3,6,7,8};
+        multiplyByThree(array);
+        ex26.printArray(array);
+    }
+    public static void multiplyByThree(int[] array){
+        for (int i = 0; i < array.length; i++) {
+            if(i % 2 == 0){
+                array[i] *= 3;
+            }
+        }
+    }
+}
+
+class ex36{
+    public static void main(String[] args) {
+        int[] array = {2,3,6,9,11};
+        boolean result = isUpArray(array);
+        System.out.println(result);
+    }
+    public static boolean isUpArray(int[] array){
+        for (int i = 1; i < array.length; i++) {
+            int firstNum = array[i-1];
+            if(firstNum > array[i]){
+                return false;
+            }
+        }
+        return true;
+    }
+}
+
+class ex37{
+    public static void main(String[] args) {
+        int[] array = {2,2,2,5,1};
+        int result = checkIndexSumNum(array, 9);
+        System.out.println(result);
+
+    }
+    public static int checkIndexSumNum(int[] array , int num){
+        int sum = 0;
+        for (int i = 0; i < array.length; i++) {
+            if(sum < num){
+                sum +=array[i];
+            }
+            if(sum > num){
+                return i;
+            }
+        }
+        return -1;
+    }
+}
+
+class ex38{
+
 }
