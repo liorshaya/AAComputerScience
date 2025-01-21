@@ -1,5 +1,6 @@
 package StudyForFun.YearA;
 
+import java.util.Random;
 import java.util.Scanner;
 
 public class madmah1Ex {
@@ -378,5 +379,174 @@ class ex23{
 }
 
 class ex24{
+    public static void main(String[] args) {
+        for (int i = 100; i < 1000; i++) {
+            int unit = i % 10;
+            int meot = i / 100;
+            if(unit == meot){
+                System.out.println(i);
+            }
+        }
+    }
+}
 
+class ex25{
+    public static void main(String[] args) {
+        int result = countNumber(3433537, 3);
+        System.out.println(result);
+    }
+    public static int countNumber(int number , int digit){
+        int count = 0;
+        for (int i = 0; number > 0; i++) {
+            int tempDigit = number % 10;
+            if(tempDigit == digit){
+               count++;
+            }
+            number /= 10;
+        }
+        return count;
+    }
+}
+
+class ex26{
+    public static void main(String[] args) {
+    printArray(createArrayByParameters(13,21));
+    }
+
+    public static int[] createArrayByParameters(int lengthArray , int num){
+        int[] array = new int[lengthArray];
+        for (int i = 0; i < array.length; i++) {
+            array[i] = num;
+        }
+        return array;
+    }
+
+    public static void printArray(int[] array){
+        for (int i = 0; i < array.length; i++) {
+            System.out.print(array[i] + " ");
+        }
+    }
+}
+
+class ex27{
+    public static void main(String[] args) {
+        ex26.printArray(createArray(18,4));
+    }
+
+    public static int[] createArray(int lengthArray , int startNum){
+        int[] array = new int[lengthArray];
+        for (int i = 0; i < array.length; i++) {
+            array[i] = startNum + i;
+        }
+        return array;
+    }
+}
+
+class ex28{
+    public static void main(String[] args) {
+    ex26.printArray(randomArray(10));
+    }
+    public static int[] randomArray(int lengthArray){
+        Random rnd = new Random();
+        int[] array = new int[lengthArray];
+        for (int i = 0; i < array.length; i++) {
+            array[i] = rnd.nextInt(1,1000);
+        }
+        return array;
+    }
+}
+
+class ex29{
+    public static void main(String[] args) {
+        int[] array = {132, 321, 234, 12, 94, 432, 323, 23};
+        int result = maxNumber(array);
+        System.out.println(result);
+    }
+    public static int maxNumber(int[] array){
+        int maxNumber = 0;
+        for (int i = 0; i < array.length; i++) {
+            if(array[i] > maxNumber){
+                maxNumber = array[i];
+            }
+        }
+        return maxNumber;
+    }
+}
+
+class ex30{
+    public static void main(String[] args) {
+        int[] array = {1,4,5,6,5,4,5};
+        int result = countNumber(array,5);
+        System.out.println(result);
+    }
+    public static int countNumber(int[] array , int number){
+        int count = 0;
+        for (int i = 0; i < array.length; i++) {
+            if(array[i] == number){
+                count++;
+            }
+        }
+        return count;
+    }
+}
+
+class ex31{
+    public static void main(String[] args) {
+        int[] array = {1,5,3,4,5,2};
+        ex26.printArray(fixedArrayWithoutDigit(array,5));
+    }
+
+    public static int[] fixedArrayWithoutDigit(int[] array , int number){
+        int count = 0;
+        for (int i = 0; i < array.length; i++) {
+            if(array[i] == number){
+                count++;
+            }
+        }
+        int[] newArray = new int[array.length-count];
+        int index = 0;
+        for (int i = 0; i < array.length; i++) {
+            if(array[i] != number){
+                newArray[index] = array[i];
+                index++;
+            }
+        }
+        return newArray;
+    }
+}
+
+class ex32{
+        public static void main(String[] args) {
+        int[] array1 = {1,2,3,4,5,6,5};
+        int[] array2 = {1,2,3,4,5,6,8};
+        int result = compareAndSumTwoArray(array1,array2);
+        System.out.println(result);
+
+    }
+    public static int compareAndSumTwoArray(int[] array1 , int[] array2){
+        int sumArray1 = 0;
+        int sumArray2 = 0;
+        for (int i = 0; i < array1.length; i++) {
+            sumArray1 += array1[i];
+        }
+        for (int i = 0; i < array2.length; i++) {
+            sumArray2 += array2[i];
+        }
+
+        if(sumArray1 > sumArray2){
+            return 1;
+        }
+        else if (sumArray2 > sumArray1){
+            return 2;
+        }
+        else {
+            return 0;
+        }
+    }
+}
+
+class ex33{
+    public static void main(String[] args) {
+
+    }
 }
