@@ -377,3 +377,6 @@ class ex23{
     }
 }
 
+class ex24{
+
+}
