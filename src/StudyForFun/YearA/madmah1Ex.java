@@ -250,6 +250,72 @@ class ex16{
 
 class ex17{
     public static void main(String[] args) {
-
+        Scanner scn = new Scanner(System.in);
+        int count = 0;
+        while (count < 5){
+            System.out.println("Enter a number: ");
+            int userInput = scn.nextInt();
+            if(userInput % 2 == 0){
+                count++;
+            }
+        }
     }
 }
+
+class ex18{
+    public static void main(String[] args) {
+        Scanner scn = new Scanner(System.in);
+        int count = 0;
+        for (int i = 0; i < 10; i++) {
+            System.out.println("Enter a number: ");
+            int userInput = scn.nextInt();
+            if(userInput % 3 == 0){
+                count++;
+            }
+        }
+        System.out.println("Numbers that divided 3: " + count);
+    }
+}
+
+class ex19{
+    public static void main(String[] args) {
+        Scanner scn = new Scanner(System.in);
+        int count = 0;
+        while(count < 1){
+            System.out.println("Enter 2-digit number: ");
+            int userInput = scn.nextInt();
+            int unit = userInput % 10;
+            int tens = userInput / 10;
+            if(unit == tens ){
+                count++;
+            }
+        }
+    }
+}
+
+class ex20{
+    public static void main(String[] args) {
+    int gcdResult = gcd(40, 16);
+    System.out.println(gcdResult);
+
+    }
+
+    public static int gcd(int number1, int number2){ // 12 , 18
+        int gcd = 1;
+        int min;
+        if(number1 > number2){
+            min = number2;
+        }
+        else{
+            min = number1;
+        }
+
+        for (int i = 1; i <= min; i++) {
+            if(number1 % i == 0 && number2 % i ==0){
+                gcd = i;
+            }
+        }
+        return gcd;
+    }
+}
+
