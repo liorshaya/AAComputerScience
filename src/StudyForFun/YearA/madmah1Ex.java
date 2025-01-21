@@ -319,3 +319,61 @@ class ex20{
     }
 }
 
+class ex21{
+    public static void main(String[] args) {
+        int result = calculateCharNum(123);
+        System.out.println(result);
+    }
+    public static int calculateCharNum(int num){ //54321
+        int count = 0;
+        int temp = 0;
+        for (int i = 0; num > 0; i++) {
+            temp = num / 10;
+            num = temp;
+            count++;
+        }
+        return count;
+    }
+}
+
+class ex22{
+    public static void main(String[] args) {
+    int result = sumCharNumbers(5492);
+        System.out.println(result);
+    }
+    public static int sumCharNumbers(int num){
+        int sum = 0;
+        int temp = 0;
+        for (int i = 0; num > 0; i++) {
+            temp = num % 10;
+            num /= 10;
+            sum += temp;
+        }
+        return sum;
+    }
+}
+
+class ex23{
+    public static void main(String[] args) {
+    boolean result = isBeautifulNumber(151);
+        System.out.println(result);
+    }
+    public static boolean isBeautifulNumber(int num){
+        if(num > 0 && num < 100){
+            return false;
+        }
+        int counterNumber = ex21.calculateCharNum(num);
+        int[] arrays = new int[counterNumber];
+        for (int i = 0; i < arrays.length; i++) {
+            arrays[i] = num % 10;
+            num /= 10;
+        }
+        if(arrays[0] == arrays[arrays.length-1]){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+}
+
