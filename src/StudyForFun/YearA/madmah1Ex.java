@@ -645,6 +645,19 @@ class ex37{
 }
 
 class ex38{
+    public static void main(String[] args) {
+        int[] array = {1,4,7,4,3,2};
+    }
+    public static int distanceFrom(int[] array , int num){
+        int firstNum = 0;
+        for (int i = 0; i < array.length; i++) {
+            if(array[i] == num){
+                firstNum = i;
+            }
+        }
+        for (int i = array.length; i < 0; i--) {
 
+        }
+    }
 
 }

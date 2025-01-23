@@ -12,7 +12,7 @@ public class Main {
         int[] rate = {2,4,4};
         TvShow tv1 = new TvShow("Vikings","Fear",rate,18,tvShow);
         Movie mo1 = new Movie("Joker","Action",rate,8,160);
-        LiveShow ls1 = new LiveShow("Uvda", "Drama",rate,12,12,20,14,59,14,50);
+        LiveShow ls1 = new LiveShow("Uvda", "Drama",rate,12,12,5,14,59,14,50);
 
         tv1.addEpisode(ep4);
 
@@ -52,6 +52,7 @@ public class Main {
 
         boolean isLongLiveShow = ls1.isLong();
         System.out.println(isLongLiveShow);
+        System.out.println(ls1);
 
 
     }

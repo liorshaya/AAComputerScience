@@ -38,6 +38,30 @@ public class LiveShow extends WatchTv{
         return false;
     }
 
+    public String toString(){
+        String printMinute = "";
+        if(this.minuteStartTime < 10){
+            printMinute = "0" + this.minuteStartTime;
+        }
+        else{
+            printMinute = "" + this.minuteStartTime;
+        }
 
+        String printActMinute = "";
+        if(this.actualMinuteEndTime < 10){
+            printActMinute = "0" + this.actualMinuteEndTime;
+        }
+        else{
+            printActMinute = "" + this.actualMinuteEndTime;
+        }
+        return getName() + ", Start show: " + this.hourStartTime + ":" + printMinute + ", End show: " + this.actualHourEndTime + ":" + printActMinute;
+    }
+
+    public boolean forKids(){
+        if(getMinimalAge() == 3 && this.minuteStartTime < 19){
+            return true;
+        }
+        return false;
+    }
 
 }
