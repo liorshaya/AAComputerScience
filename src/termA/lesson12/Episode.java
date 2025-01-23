@@ -26,4 +26,10 @@ public class Episode {
         }
         return this.name;
     }
+
+    public int getTime(){
+        return this.time;
+    }
+
+
 }

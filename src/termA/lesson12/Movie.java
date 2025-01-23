@@ -7,4 +7,39 @@ public class Movie extends WatchTv{
         super(name,type,gradeByWatchers,minimalAge);
         this.time = time;
     }
+
+    public boolean isValidLength(){
+        if(this.time >= 90 && this.time <= 210){
+            return true;
+        }
+        return false;
+    }
+
+
+    public String toString(){
+        String forKids = "";
+        if(forKids()){
+            forKids = " and the movie is for kids.";
+        }
+        else{
+            forKids = " and the movie is not for kids.";
+        }
+        return getName() + ": " + this.time + " minutes length" + forKids;
+    }
+
+    public boolean isLong(){
+        if(!forKids()){
+            if(this.time > 150){
+                return true;
+            }
+        }
+        else {
+            if(this.time > 100){
+                return true;
+            }
+        }
+        return false;
+    }
+
+
 }
