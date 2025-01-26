@@ -683,5 +683,41 @@ class ex38{
 }
 
 class ex39{
+    public static void main(String[] args) {
+        int[] array ={1,5,7,5,3,7,9,7,5,4,2,9,6,4,3};
+        int[] result = valuesInArrays(array,4);
+        ex26.printArray(result);
+    }
+    public static int[] valuesInArrays(int[] array , int number){
+        int[] checkerArray = new int[3];
+
+        int counterHigherNum = 0;
+        for (int i = 0; i < array.length; i++) {
+            if(array[i] < number){
+                counterHigherNum++;
+            }
+        }
+        checkerArray[0] = counterHigherNum;
+
+        int counterEqualNum = 0;
+        for (int i = 0; i < array.length; i++) {
+            if(array[i] == number){
+                counterEqualNum++;
+            }
+        }
+        checkerArray[1] = counterEqualNum;
+
+        int counterSmallerNum = 0;
+        for (int i = 0; i < array.length; i++) {
+            if(array[i] > number){
+                counterSmallerNum++;
+            }
+        }
+        checkerArray[2] = counterSmallerNum;
+        return checkerArray;
+    }
+}
+
+class ex40{
 
 }
