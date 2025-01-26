@@ -52,5 +52,27 @@ public class Person {
 
     public char mostCommonStartingLetter(){
         char mostStartLetter = name.charAt(0);
+        return 'g';
+    }
+
+    public int compareGrandChildren(Person other){
+        int thisGrand = 0;
+        int otherGrand = 0;
+
+        for (int i = 0; i < this.children.length; i++) {
+            thisGrand += this.children[i].children.length;
+        }
+
+        for (int i = 0; i < other.children.length; i++) {
+            otherGrand += other.children[i].children.length;
+        }
+
+        if(thisGrand == otherGrand){
+            return 0;
+        }
+        else if(thisGrand > otherGrand){
+            return 1;
+        }
+        return -1;
     }
 }
