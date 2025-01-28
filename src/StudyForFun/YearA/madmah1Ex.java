@@ -691,29 +691,19 @@ class ex39{
     public static int[] valuesInArrays(int[] array , int number){
         int[] checkerArray = new int[3];
 
-        int counterHigherNum = 0;
+
         for (int i = 0; i < array.length; i++) {
             if(array[i] < number){
-                counterHigherNum++;
+                checkerArray[0]++;
+            } else if (array[i] == number){
+                checkerArray[1]++;
             }
-        }
-        checkerArray[0] = counterHigherNum;
+            else{
+                checkerArray[2]++;
+            }
 
-        int counterEqualNum = 0;
-        for (int i = 0; i < array.length; i++) {
-            if(array[i] == number){
-                counterEqualNum++;
-            }
         }
-        checkerArray[1] = counterEqualNum;
 
-        int counterSmallerNum = 0;
-        for (int i = 0; i < array.length; i++) {
-            if(array[i] > number){
-                counterSmallerNum++;
-            }
-        }
-        checkerArray[2] = counterSmallerNum;
         return checkerArray;
     }
 }
