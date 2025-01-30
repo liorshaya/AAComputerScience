@@ -83,19 +83,22 @@ class Ex_3{
 
 class Ex_4{
     public static void main(String[] args) {
-        int[] arr = {1,2,3,4,5,6};
+        int[] arr = {1,2,3,4,5,6,7};
         reverseArray(arr);
+        ex26.printArray(arr);
     }
     public static void reverseArray(int [] arr){
-        for (int i = arr.length-1; i >= 0; i--) {
-            System.out.print(arr[i]);
+        for (int i = 0 , j = arr.length-1; i < arr.length/2; i++, j--) {
+            int temp = arr[i];
+            arr[i] = arr[j];
+            arr[j] = temp;
         }
     }
 }
 
 class Ex_5{
     public static void main(String[] args) {
-        String name = "Lior";
+        String name = "Jackson";
         String name1 = "Jackson";
         String name2 = "Jaxon";
         System.out.println(encodeSoundex(name));

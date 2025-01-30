@@ -709,5 +709,44 @@ class ex39{
 }
 
 class ex40{
+    public static void main(String[] args) {
+        int[] array1 = {4,7,1,0,12,6};
+        int[] array2 = {5,71,3,4,10,1,12};
+        int[] result = cutArray(array1,array2);
+        ex26.printArray(result);
 
+
+    }
+    public static int[] cutArray(int[] array1 , int[] array2){
+        int count = 0;
+        for (int i = 0; i < array1.length; i++) {
+            for (int j = 0; j < array2.length; j++) {
+                if(array1[i] == array2[j]){
+                    count++;
+                }
+            }
+        }
+        int[] newArray = new int[count];
+        int index = 0;
+        for (int i = 0; i < array1.length; i++) {
+            for (int j = 0; j < array2.length; j++) {
+                if (array1[i] == array2[j]) {
+                    newArray[index] = array1[i];
+                    index++;
+                }
+            }
+        }
+        return newArray;
+    }
 }
+
+//class ex41{
+//    public static void main(String[] args) {
+//
+//    }
+//    public static int[] cutArray(int[] array1 , int[] array2){
+//
+//    }
+//
+//
+//}
