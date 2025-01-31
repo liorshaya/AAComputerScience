@@ -810,5 +810,38 @@ class ex42{
 }
 
 class ex43{
+    public static void main(String[] args) {
+        int[] array1 = {1,4,5,4,3,7,5,4};
+        int[] array2 = {3,5,6,4,3};
+        double[] result = avgArrays(array1,array2);
+        printArray(result);
+    }
+    public static double[] avgArrays(int[] array1 , int[] array2){
+        int newArrayLength = array2.length;
+        if(array1.length > array2.length){
+            newArrayLength = array1.length;
+        }
 
+
+        double[] newArrayAvg = new double[newArrayLength];
+        for (int i = 0; i < array1.length; i++) {
+            newArrayAvg[i] = array1[i];
+        }
+
+        double[] tempArray = new double[newArrayLength];
+        for (int i = 0; i < array2.length; i++) {
+            tempArray[i] = array2[i];
+        }
+
+        for (int i = 0; i < newArrayAvg.length; i++) {
+            newArrayAvg[i] = (newArrayAvg[i] + tempArray[i])/2;
+        }
+        return newArrayAvg;
+    }
+
+    public static void printArray(double[] array){
+        for (int i = 0; i < array.length; i++) {
+            System.out.print(array[i] + " ");
+        }
+    }
 }
