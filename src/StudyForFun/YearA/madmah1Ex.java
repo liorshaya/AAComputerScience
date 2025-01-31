@@ -740,13 +740,41 @@ class ex40{
     }
 }
 
-//class ex41{
-//    public static void main(String[] args) {
-//
-//    }
-//    public static int[] cutArray(int[] array1 , int[] array2){
-//
-//    }
-//
-//
-//}
+class ex41{
+    public static void main(String[] args) {
+        int[] array1 = {4,7,1,0,12,6};
+        int[] array2 = {5,71,3,4,10,1,12};
+        int[] result = cutArray(array1,array2);
+        ex26.printArray(result);
+    }
+    public static int[] cutArray(int[] array1 , int[] array2){
+        int count = 0;
+        for (int i = 0; i < array1.length; i++) {
+            for (int j = i+1; j < array2.length; j++) {
+                if(array1[i] == array2[j]){
+                    count++;
+                }
+            }
+        }
+        int[] newArray = new int[array1.length + array2.length - count];
+        for (int i = 0; i < array1.length; i++) {
+            newArray[i] = array1[i];
+        }
+        int index = array1.length;
+        for (int i = 0; i < array2.length; i++) {
+            boolean exists = false;
+            for (int j = 0; j < index; j++) {
+                if (newArray[j] == array2[i]) {
+                    exists = true;
+                    break;
+                }
+            }
+            if (!exists) {
+                newArray[index] = array2[i];
+                index++;
+            }
+        }
+
+        return newArray;
+    }
+}
