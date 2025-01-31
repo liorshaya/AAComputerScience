@@ -845,3 +845,10 @@ class ex43{
         }
     }
 }
+
+class ex44{
+    public static void main(String[] args) {
+
+    }
+
+}
