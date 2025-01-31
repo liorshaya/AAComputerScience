@@ -778,3 +778,37 @@ class ex41{
         return newArray;
     }
 }
+
+class ex42{
+    public static void main(String[] args) {
+        int[] array1 = {12,5,1,1,6,7,8,1,1,12,3};
+        int[] array2 = {5,3,3,3,1,12,6,7,8,6,3,5};
+        boolean result = equalValuesArrays(array1,array2);
+        System.out.println(result);
+    }
+    public static boolean equalValuesArrays(int[] numbers1, int[] numbers2) {
+        for (int i = 0; i < numbers1.length; i++) {
+            if (!existInArray(numbers1[i],numbers2)){
+                return false;
+            }
+        }
+        for (int i = 0; i < numbers2.length; i++) {
+            if (!existInArray(numbers2[i],numbers1)){
+                return false;
+            }
+        }
+        return true;
+    }
+    public static boolean existInArray(int number, int[] array){
+        for (int i = 0; i < array.length; i++) {
+            if(array[i] == number){
+                return true;
+            }
+        }
+        return false;
+    }
+}
+
+class ex43{
+
+}
