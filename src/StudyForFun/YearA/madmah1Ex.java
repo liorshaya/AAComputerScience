@@ -848,7 +848,75 @@ class ex43{
 
 class ex44{
     public static void main(String[] args) {
+        int[] array = {1,2,3,4,5};
+        int[] result = shiftRight(array);
+        ex26.printArray(result);
+        System.out.println();
+        int[] result1 = shiftLeft(array);
+        ex26.printArray(result1);
+        System.out.println();
+        int[] result2 = shift(array,false,2);
+        ex26.printArray(result2);
+    }
+    public static int[] shiftRight(int[] array){
+        int lastPlace = array[array.length-1];
+        int[] newArray = new int[array.length];
+        for (int i = 0; i < array.length-1; i++) {
+            newArray[i+1] = array[i];
+        }
+        newArray[0] = lastPlace;
 
+        return newArray;
     }
 
+    public static int[] shiftLeft(int[] array){
+        int firstPlace = array[0];
+        int[] newArray = new int[array.length];
+        for (int i = array.length-2; i >= 0; i--) {
+            newArray[i] = array[i+1];
+        }
+        newArray[array.length-1] = firstPlace;
+        return newArray;
+    }
+
+    public static int[] shift(int[] array, boolean left, int shifts){
+        int[] newArray;
+        if(left){
+            for (int i = 0; i < shifts; i++) {
+                newArray = shiftLeft(array);
+                array = newArray;
+            }
+            return array;
+        }
+        else{
+            for (int i = 0; i < shifts; i++) {
+                newArray = shiftRight(array);
+                array = newArray;
+            }
+        }
+        return array;
+    }
 }
+
+class ex45{
+    public static void main(String[] args) {
+        int[] array = {4363,12756,1278,9550};
+        int[] result = checkEachDigit(array);
+        ex26.printArray(result);
+    }
+    public static int[] checkEachDigit(int[] array){
+        int[] newArray = new int[10];
+        for (int i = 0; i < array.length; i++) {;
+            int tempNum = array[i];
+
+            for (int j = 0; tempNum > 0; j++) {
+                int checkNum = tempNum % 10;
+                newArray[checkNum]++;
+                tempNum /= 10;
+            }
+
+        }
+        return newArray;
+    }
+}
+
