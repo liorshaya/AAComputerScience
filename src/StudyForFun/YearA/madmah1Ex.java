@@ -920,3 +920,12 @@ class ex45{
     }
 }
 
+class ex46{
+    public static void main(String[] args) {
+//        int result = removeDigit(54535643, 5);
+    }
+//    public static int removeDigit(int num , int digit){
+//
+//    }
+
+}
