@@ -922,10 +922,23 @@ class ex45{
 
 class ex46{
     public static void main(String[] args) {
-//        int result = removeDigit(54535643, 5);
+        int result = removeDigit(54535643, 5);
+        System.out.println(result);
     }
-//    public static int removeDigit(int num , int digit){
-//
-//    }
+    public static int removeDigit(int num , int digit){
+        int result = 0;
+        int multiply = 1;
+
+        while(num > 0){
+            int lastDigit = num % 10;
+            if(lastDigit != digit){
+                result += multiply * lastDigit;
+                multiply *= 10;
+            }
+            num /= 10;
+        }
+
+        return result;
+    }
 
 }
