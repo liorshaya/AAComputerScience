@@ -48,9 +48,9 @@ class exes3{
 
     }
     public static int[] createNewArrayWithNumDig(int[] array1 , int[] array2, int num){
-        double numDigit = 0;
+        int numDigit = 0;
         if(num != 1) {
-            numDigit = Math.pow(10, num) - 1;
+            numDigit = (int) Math.pow(10, num) - 1;
         }
 
         int countArray1 = 0;
