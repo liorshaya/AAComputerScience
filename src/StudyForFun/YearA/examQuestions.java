@@ -120,8 +120,14 @@ class Exe2{
             if(array[i] + 1 == array[i+1]){
                 counterUp++;
             }
+            else {
+                counterUp = 1;
+            }
             if(array[i] == array[i+1]+1){
                 counterDown++;
+            }
+            else {
+                counterDown = 1;
             }
             if(helfLengthArray == counterUp || helfLengthArray == counterDown){
                 return true;
