@@ -32,6 +32,8 @@ public class BankSimulation {
         boolean success1 = true;
         boolean success2 = true;
 
+
+
         while(repeat != 2000){
             for (int i = 0; i < this.bankAccounts.length; i++) {
                 success1 = this.bankAccounts[i].withdraw(rnd.nextInt(100,1000));
