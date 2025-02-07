@@ -89,3 +89,82 @@ class exes3{
         }
     }
 }
+
+class exes4{
+    public static void main(String[] args) {
+        int[] array = {1,2,5,-5,3,-7,2};
+        boolean result = isZigzagArray(array);
+        System.out.println(result);
+        boolean result2 = isSubArrayBySize(array,4);
+        System.out.println(result2);
+    }
+    public static boolean isZigzagArray(int[] array){
+
+        for (int i = 0; i < array.length; i++) {
+            if(array[i] == 0){
+                return false;
+            }
+        }
+
+        for (int i = 1; i < array.length; i++) {
+            if((array[i-1] > 0 && array[i] > 0) || (array[i-1] < 0 && array[i] < 0)){
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public static boolean isSubArrayBySize(int[] array , int size){
+        int count = 1;
+
+        for (int i = 1; i < array.length; i++) {
+            if((array[i-1] > 0 && array[i] > 0) || (array[i-1] < 0 && array[i] < 0)){
+                count = 1;
+            }
+            else{
+                count++;
+            }
+        }
+        if(count >= size){
+            return true;
+        }
+        return false;
+    }
+}
+
+class exes5{
+    public static void main(String[] args) {
+        int[] arr1 = {1,5,8,3,7,1,3,6,2,7,1,6,7,1,7,8,1,2,1,5,7,7,1,1,3};
+        int[] arr2 = {1,6,2};
+        int result = mostCommonNumNotInArr2(arr1,arr2);
+        System.out.println(result);
+    }
+    public static int mostCommonNumNotInArr2(int[] arr1 , int[] arr2){
+        int mostNum = arr1[0];
+        int mostCount = 1;
+
+        for (int i = 0; i < arr1.length; i++) {
+            int tempCount = 1;
+            for (int j = i+1; j < arr1.length; j++) {
+                if(arr1[i] == arr1[j]){
+                    tempCount++;
+                }
+            }
+            int tempNum = arr1[i];
+            for (int j = 0; j < arr2.length; j++) {
+                if(arr2[j] != mostNum){
+                    continue;
+                }
+            }
+            if(tempCount > mostCount){
+                mostCount = tempCount;
+                mostNum = tempNum;
+
+            }
+
+
+        }
+        return mostNum;
+
+    }
+}
