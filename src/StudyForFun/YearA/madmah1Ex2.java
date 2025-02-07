@@ -299,21 +299,64 @@ class exes9{
     public static boolean isProxomityArray(int[] array, int max){
 
         for (int i = 0; i < array.length-2; i++) {
-            int tempMin1 = Math.min(array[i],array[i+1]);
-            int tempMin2 = Math.min(array[i+1],array[i+2]);
-            int finalMin = Math.min(tempMin1,tempMin2);
+            int Min = Math.min(array[i],Math.min(array[i+1],array[i+2]));
+            int Max = Math.max(array[i],Math.max(array[i+1],array[i+2]));
 
-            int tempMax1 = Math.max(array[i],array[i+1]);
-            int tempMax2 = Math.max(array[i+1],array[i+2]);
-            int finalMax = Math.max(tempMax1,tempMax2);
-
-            int diff = Math.abs(finalMax - finalMin);
+            int diff = Math.abs(Max - Min);
 
             if(diff > max){
                 return false;
             }
-
         }
         return true;
+    }
+}
+
+class exes10{
+    public static void main(String[] args) {
+        String[] array = {"yello", "dfdi", "dfdfa", "dsfdi","sdsdi" , "sadsada"};
+        char result = mostCommonCharLastWordInArray(array);
+        System.out.println(result);
+    }
+    public static char mostCommonCharLastWordInArray(String[] array){
+        int mostCount = 0;
+        char mostChar = array[0].charAt(array[0].length()-1);
+        for (int i = 0; i < array.length; i++) {
+            int currCount = 0;
+            for (int j = 0; j < array.length; j++) {
+                if(array[i].charAt(array[i].length()-1) == array[j].charAt(array[j].length()-1)){
+                    currCount++;
+                }
+            }
+            if(currCount > mostCount){
+                mostCount = currCount;
+                mostChar = array[i].charAt(array[i].length()-1);
+            }
+        }
+        return mostChar;
+    }
+}
+
+class exes11{
+    public static void main(String[] args) {
+        int[] array = {5,8,1,9};
+        int number = circulateArray(array,-2);
+        System.out.println(number);
+    }
+    public static int circulateArray(int[] array, int index){
+        int numberInIndex = 0;
+        if(index >= 0){
+            for (int i = 0; i < array.length; i++) {
+                numberInIndex = array[index % array.length];
+            }
+            return numberInIndex;
+        }
+        else{
+            int negInIndex = Math.abs(index);
+            for (int i = 0; i < array.length; i++) {
+                numberInIndex = array[array.length-1];
+            }
+        }
+        return numberInIndex;
     }
 }
