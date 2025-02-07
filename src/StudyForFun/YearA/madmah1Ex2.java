@@ -134,7 +134,7 @@ class exes4{
 
 class exes5{
     public static void main(String[] args) {
-        int[] arr1 = {1,5,8,3,7,1,3,6,2,7,1,6,7,1,7,8,1,2,1,5,7,7,1,1,3};
+        int[] arr1 = {1,5,8,3,5,7,5,1,3,6,2,7,1,5,6,7,1,7,8,5,5,1,2,1,5,5,7,7,1,1,3};
         int[] arr2 = {1,6,2};
         int result = mostCommonNumNotInArr2(arr1,arr2);
         System.out.println(result);
@@ -151,20 +151,94 @@ class exes5{
                 }
             }
             int tempNum = arr1[i];
+            boolean foundInArr2 = false;
             for (int j = 0; j < arr2.length; j++) {
-                if(arr2[j] != mostNum){
-                    continue;
+                if(arr2[j] == tempNum){
+                    foundInArr2 = true;
+                    break;
                 }
             }
-            if(tempCount > mostCount){
+            if(!foundInArr2 && tempCount > mostCount){
                 mostCount = tempCount;
                 mostNum = tempNum;
 
             }
-
-
         }
         return mostNum;
+    }
+}
 
+class exes6{
+    public static void main(String[] args) {
+        int[] array = {10,5,8,7,3,12,11,4};
+        boolean result = isDuoArray(array);
+        System.out.println(result);
+
+        int[] array2 = {8,7,3,12,7,6,10,5};
+        boolean result2 = isPartDuoArray(array2);
+        System.out.println(result2);
+
+    }
+    public static boolean isDuoArray(int[] array){
+        int duoSum = array[0] + array[1];
+
+        if(array.length % 2 != 0){
+            return false;
+        }
+
+        for (int i = 0; i < array.length-1; i+=2) {
+            if(array[i] + array[i+1] != duoSum){
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public static boolean isPartDuoArray(int[] array){
+        int duoSum = array[0] + array[1];
+
+        int count = 0;
+
+        if(array.length % 2 != 0){
+            return false;
+        }
+
+        int requiredCount = (array.length/2/2) +1;
+
+        for (int i = 0; i < array.length-1; i+=2) {
+            if(array[i] + array[i+1] == duoSum){
+                count++;
+            }
+        }
+        if(count >= requiredCount){
+            return true;
+        }
+        return false;
+    }
+}
+
+class exes7{
+    public static void main(String[] args) {
+        String[] array = {"sadasd","dsda", "asdasdf", "dsdsd", "fgdfd", "asdsad", "sasds", " sdffdf"};
+        char result = mostCommonChar(array);
+        System.out.println(result);
+    }
+    public static char mostCommonChar(String[] array){
+        char mostCommonChar = array[0].charAt(0);
+        int mostCount = 1;
+
+        for (int i = 0; i < array.length; i++) {
+             int tempCount = 1;
+            for (int j = 0; j < array[i].length(); j++) {
+                if(array[i].charAt(i) == array[i].charAt(j)){
+                    tempCount++;
+                }
+            }
+            if(tempCount > mostCount){
+                mostCount = tempCount;
+                mostCommonChar = array[i].charAt(i);
+            }
+        }
+        return mostCommonChar;
     }
 }
