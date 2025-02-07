@@ -228,17 +228,92 @@ class exes7{
         int mostCount = 1;
 
         for (int i = 0; i < array.length; i++) {
-             int tempCount = 1;
             for (int j = 0; j < array[i].length(); j++) {
-                if(array[i].charAt(i) == array[i].charAt(j)){
-                    tempCount++;
+                int tempCount = 1;
+                for (int k = 0; k < array.length; k++) {
+                    for (int l = 0; l < array[k].length(); l++) {
+                        if(array[k].charAt(l) == array[i].charAt(j)){
+                           tempCount++;
+                        }
+                    }
+
+                }
+                if(tempCount > mostCount){
+                    mostCount = tempCount;
+                    mostCommonChar = array[i].charAt(j);
                 }
             }
-            if(tempCount > mostCount){
-                mostCount = tempCount;
-                mostCommonChar = array[i].charAt(i);
-            }
+
         }
         return mostCommonChar;
+    }
+}
+
+class exes8{
+    public static void main(String[] args) {
+        String[] array = {"apple","banana","cherry","date","fig"};
+        String[] array2 = { "fig", "date","cherry","banana","apple"};
+        String[] result = reversedArray(array);
+        printArray(result);
+        System.out.println();
+        boolean result2 = isSameReversedArrays(array,array2);
+        System.out.println(result2);
+
+    }
+    public static String[] reversedArray(String[] array){
+        String[] newArray = new String[array.length];
+
+        int index = 0;
+        for (int i = array.length-1; i >= 0 ; i--) {
+            newArray[index] = array[i];
+            index++;
+        }
+        return newArray;
+    }
+
+    public static void printArray(String[] array){
+        for (int i = 0; i < array.length; i++) {
+            System.out.print(array[i] + " ");
+        }
+    }
+
+    public static boolean isSameReversedArrays(String[] array1 , String[] array2){
+
+        String[] newArray = reversedArray(array1);
+
+        for (int i = 0; i < newArray.length; i++) {
+            if(!newArray[i].equals(array2[i])){
+                return false;
+            }
+        }
+        return true;
+    }
+}
+
+class exes9{
+    public static void main(String[] args) {
+        int[] array = {6,9,7,8,12,12,10,7,7,9,11};
+        boolean result = isProxomityArray(array,5);
+        System.out.println(result);
+    }
+    public static boolean isProxomityArray(int[] array, int max){
+
+        for (int i = 0; i < array.length-2; i++) {
+            int tempMin1 = Math.min(array[i],array[i+1]);
+            int tempMin2 = Math.min(array[i+1],array[i+2]);
+            int finalMin = Math.min(tempMin1,tempMin2);
+
+            int tempMax1 = Math.max(array[i],array[i+1]);
+            int tempMax2 = Math.max(array[i+1],array[i+2]);
+            int finalMax = Math.max(tempMax1,tempMax2);
+
+            int diff = Math.abs(finalMax - finalMin);
+
+            if(diff > max){
+                return false;
+            }
+
+        }
+        return true;
     }
 }
