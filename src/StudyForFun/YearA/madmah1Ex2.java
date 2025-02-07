@@ -356,3 +356,84 @@ class exes11{
         return numberInIndex;
     }
 }
+
+class exes12{
+    public static void main(String[] args) {
+        int[] array1 = {1,7,9,1,6,4,3,8};
+        int[] array2 ={4,6,9,9,2,1,0,1};
+        int[] result = binaricArray(array1,array2);
+        printArray(result);
+    }
+    public static int[] binaricArray(int[] array1 , int[] array2){
+        if(array1.length != array2.length){
+            return new int[0];
+        }
+        int[] newArray = new int[array1.length];
+        for (int i = 0; i < array1.length; i++) {
+            if(array1[i] > array2[i]){
+                newArray[i] = 1;
+            } else if (array1[i] < array2[i]) {
+                newArray[i] = -1;
+            }
+            else{
+                newArray[i] = 0;
+            }
+        }
+        return newArray;
+    }
+
+    public static void printArray(int[] array){
+        for (int i = 0; i < array.length; i++) {
+            System.out.print(array[i] + " ");
+        }
+    }
+}
+
+class exes13{
+    public static void main(String[] args) {
+        boolean result =isPrimary(96);
+        System.out.println(result);
+
+        String result2 = perukLegormin(12600);
+        System.out.println(result2);
+    }
+    public static boolean isPrimary(int number){
+        for (int i = 2; i < number; i++) {
+            if(number % i == 0){
+                return false;
+            }
+        }
+        return true;
+    }
+    public static String perukLegormin(int number){
+        boolean checkPrimery = isPrimary(number);
+        String calculating = "";
+        if(checkPrimery){
+            System.out.println("The number is primary!");
+        }
+        else{
+            int temp = number;
+            while (number % 2 == 0){
+                calculating += "2 ";
+                number /= 2;
+                if(number > 1){
+                    calculating += "* ";
+                }
+            }
+            for (int i = 3; i < Math.sqrt(number); i+=2) {
+                while (number % i == 0){
+                    calculating += i + " ";
+                    number /= i;
+                    if(number > 1){
+                        calculating += "* ";
+                    }
+                }
+            }
+            if(number > 1){
+                calculating += number;
+            }
+            calculating += " =" + temp;
+        }
+        return calculating;
+    }
+}
