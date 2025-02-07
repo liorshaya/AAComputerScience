@@ -340,22 +340,18 @@ class exes10{
 class exes11{
     public static void main(String[] args) {
         int[] array = {5,8,1,9};
-        int number = circulateArray(array,-2);
+        int number = circulateArray(array,-7);
         System.out.println(number);
     }
     public static int circulateArray(int[] array, int index){
         int numberInIndex = 0;
         if(index >= 0){
-            for (int i = 0; i < array.length; i++) {
-                numberInIndex = array[index % array.length];
-            }
-            return numberInIndex;
+            numberInIndex = array[index % array.length];
+
         }
         else{
-            int negInIndex = Math.abs(index);
-            for (int i = 0; i < array.length; i++) {
-                numberInIndex = array[array.length-1];
-            }
+            int negIndex = (index % array.length)+array.length;
+            numberInIndex = array[negIndex];
         }
         return numberInIndex;
     }
