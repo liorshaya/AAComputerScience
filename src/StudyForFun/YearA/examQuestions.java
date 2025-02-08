@@ -88,7 +88,7 @@ public class examQuestions {
 
 class Exe2{
     public static void main(String[] args) {
-        boolean result = isEasyPassword(26345117);
+        boolean result = isEasyPassword(634567117);
         System.out.println(result);
     }
     public static boolean isEasyPassword(int password){

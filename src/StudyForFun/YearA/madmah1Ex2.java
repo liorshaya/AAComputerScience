@@ -1,5 +1,7 @@
 package StudyForFun.YearA;
 
+import java.util.Scanner;
+
 public class madmah1Ex2 {
     public static void main(String[] args) {
         int[] array = {3, 10, 17, 24, 31, 38};
@@ -432,8 +434,156 @@ class exes13{
             if(number > 1){
                 calculating += number;
             }
-            calculating += " =" + temp;
+            calculating += " = " + temp;
         }
         return calculating;
     }
 }
+
+class exes14{
+    public static void main(String[] args) {
+        String text = "רבע הלילה עבר";
+        boolean result = isPolindrom(text);
+        System.out.println(result);
+    }
+    public static boolean isPolindrom(String text){
+
+        int left = 0;
+        int right = text.length()-1;
+
+        while(left < right){
+            if(text.charAt(left) != text.charAt(right)){
+                return false;
+            }
+            left++;
+            right--;
+        }
+        return true;
+    }
+}
+
+class exes15{
+    public static void main(String[] args) {
+        Scanner scn = new Scanner(System.in);
+        System.out.println("Enter a number: ");
+        int number = scn.nextInt();
+        if(number < 100 || number > 999){
+            System.out.println("System finished.");
+        }
+        else{
+            boolean result = isSeriesUpDown(number);
+            System.out.println(result);
+        }
+
+    }
+    public static boolean isSeriesUpDown(int number){
+        int unit = number % 10;
+        int tens = (number/10) % 10;
+        int hun = number/100;
+
+        if(unit + 2 == tens + 1 && tens + 1 == hun){ //123
+            return true;
+        }
+        else if(hun + 2 == tens + 1 && tens + 1 == unit){//321
+            return true;
+        }
+        return false;
+    }
+}
+
+class exes16{
+    public static void main(String[] args) {
+        int[] array1 = {2,3,5,6,7,8};
+        int[] array2 = {3,5,7,8};
+        double[] result = avgEachCell(array1,array2);
+        printArray(result);
+
+    }
+    public static double[] avgEachCell(int[] array1 , int[] array2){
+        int lenNewArray = array2.length;
+        if(array1.length > array2.length){
+            lenNewArray = array1.length;
+        }
+
+        double[] newArray = new double[lenNewArray];
+        for (int i = 0; i < array1.length; i++) {
+            newArray[i] = array1[i];
+        }
+
+        double[] tempArray = new double[lenNewArray];
+        for (int i = 0; i < array2.length; i++) {
+            tempArray[i] = array2[i];
+        }
+
+        for (int i = 0; i < newArray.length; i++) {
+            newArray[i] = (newArray[i] + tempArray[i]) / 2;
+        }
+
+        return newArray;
+    }
+
+    public static void printArray(double[] array){
+        for (int i = 0; i < array.length; i++) {
+            System.out.print(array[i] + " ");
+        }
+    }
+}
+
+class exes17{
+    public static void main(String[] args) {
+        String text = "I want it I got it";
+        String result = rasheTevotWord(text);
+        System.out.println(result);
+    }
+    public static String rasheTevotWord(String text){
+        String[] wordArray = text.split(" ");
+
+        String orgRtw = "";
+
+        for (int i = 0; i < wordArray.length; i++) {
+            orgRtw += wordArray[i].charAt(0);
+
+        }
+
+        String rtwLowerCase = orgRtw.toLowerCase();
+
+        String result = "";
+
+        for (int i = 0; i < orgRtw.length(); i++) {
+            char currChar = orgRtw.charAt(i);
+            char lowerCaseChar = rtwLowerCase.charAt(i);
+
+            if(rtwLowerCase.indexOf(lowerCaseChar) == i){
+                result += currChar;
+            }
+
+        }
+        return result;
+    }
+}
+
+class exes18{
+    public static void main(String[] args) {
+        int[] array = {1,8,12,5,6};
+        boolean result = canProduce(array,18);
+        System.out.println(result);
+    }
+    public static boolean canProduce(int[] numbers, int goal){
+
+        for (int i = 0; i < numbers.length-1; i++) {
+            for (int j = i+1; j < numbers.length; j++) {
+                if(numbers[i] + numbers[j] == goal){
+                    return true;
+                }
+            }
+
+        }
+        return false;
+    }
+}
+
+
+
+
+
+
