@@ -586,6 +586,9 @@ class exes19{
     public static void main(String[] args) {
         boolean result = isAnagram("aagwbagav", "abawggava");
         System.out.println(result);
+
+        boolean result2 = isSemiAnagram("ab","ab");
+        System.out.println(result2);
     }
     public static boolean isAnagram(String text1, String text2){
 
@@ -611,9 +614,59 @@ class exes19{
 
         return false;
     }
+
+    public static boolean isSemiAnagram(String text1, String text2){
+        if(isAnagram(text1,text2)){
+            return false;
+        }
+
+        for (int i = 0; i < text2.length(); i++) {
+            char oneChar = text2.charAt(i);
+            if(!text1.contains(oneChar+"") ){
+                return false;
+            }
+        }
+        for (int i = 0; i < text1.length(); i++) {
+            char oneChar = text1.charAt(i);
+            if(!text2.contains(oneChar+"")){
+                return false;
+            }
+        }
+        return true;
+    }
 }
 
 class exes20{
+    public static void main(String[] args) {
+        multiplyCombinations(1447);
+    }
+    public static void multiplyCombinations(int number){
+
+        if(isPrimaryNumber(number)){
+            System.out.println("is primary number!");
+            return;
+        }
+        for (int i = 2; i <= Math.sqrt(number); i++) {
+            if(number % i == 0){
+                int temp = number / i;
+                System.out.println(temp + " * " + i);
+            }
+        }
+
+
+    }
+
+    public static boolean isPrimaryNumber(int number){
+        for (int i = 2; i < number; i++) {
+            if(number % i == 0){
+                return false;
+            }
+        }
+        return true;
+    }
+}
+
+class exes21{
     public static void main(String[] args) {
 
     }
