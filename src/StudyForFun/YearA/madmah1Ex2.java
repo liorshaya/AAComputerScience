@@ -582,7 +582,42 @@ class exes18{
     }
 }
 
+class exes19{
+    public static void main(String[] args) {
+        boolean result = isAnagram("aagwbagav", "abawggava");
+        System.out.println(result);
+    }
+    public static boolean isAnagram(String text1, String text2){
 
+        if(text1.length() != text2.length()){
+            return false;
+        }
+        else{
+            String textTemp1 = text1;
+            String textTemp2 = text2;
+            for (int i = 0; i < text1.length(); i++) {
+                char oneChar = text1.charAt(i);
+                for (int j = 0; j < text2.length(); j++) {
+                    if(oneChar == text2.charAt(j)){
+                        textTemp1 = textTemp1.replaceFirst(oneChar+"","");
+                        textTemp2 = textTemp2.replaceFirst(oneChar+"" , "");
+                    }
+                }
+            }
+            if(textTemp1.equals(textTemp2)){
+                return true;
+            }
+        }
+
+        return false;
+    }
+}
+
+class exes20{
+    public static void main(String[] args) {
+
+    }
+}
 
 
 
