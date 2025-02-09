@@ -638,12 +638,12 @@ class exes19{
 
 class exes20{
     public static void main(String[] args) {
-        multiplyCombinations(1447);
+        multiplyCombinations(1200);
     }
     public static void multiplyCombinations(int number){
 
         if(isPrimaryNumber(number)){
-            System.out.println("is primary number!");
+            System.out.println(number +" is primary number!");
             return;
         }
         for (int i = 2; i <= Math.sqrt(number); i++) {
@@ -668,6 +668,21 @@ class exes20{
 
 class exes21{
     public static void main(String[] args) {
+        String text = "Hello, this is a java string";
+        statisticChars(text);
+    }
+    public static void statisticChars(String text){
+
+        String tempText = text.toUpperCase();
+        for (int i = 0; i < text.length(); i++) {
+            int count = 1;
+            for (int j = i+1; j < tempText.length(); j++) {
+                if(tempText.charAt(i) == tempText.charAt(j) ){
+                    count++;
+                }
+            }
+            System.out.println(tempText.charAt(i) + "-" + count);
+        }
 
     }
 }

@@ -38,7 +38,7 @@ public class exam1 {
 
 class Ex_2 {
     public static void main(String[] args) {
-        int result = calculateSquareRoot(2);
+        int result = calculateSquareRoot(15);
         System.out.println(result);
     }
 
