@@ -856,6 +856,9 @@ class exes25{
     public static void main(String[] args) {
         boolean result = isPitagorikTriple(10,8,6);
         System.out.println(result);
+
+        boolean result2 = couldBePartOfPitagoric(13,5);
+        System.out.println(result2);
     }
     public static boolean isPitagorikTriple(int num1 , int num2 , int num3){
         int max = Math.max(num1 , Math.max(num2,num3));
@@ -880,5 +883,43 @@ class exes25{
         }
         return false;
     }
+
+    public static boolean couldBePartOfPitagoric(int num1 , int num2){
+
+
+        double possibleA =Math.sqrt(num1 * num1 + num2 * num2);
+        double possibleB =Math.sqrt(num1 * num1 - num2 * num2);
+        double possibleC =Math.sqrt(num2 * num2 - num1 * num1);
+
+        return (possibleA == (int) possibleA || possibleB == (int) possibleB ||possibleC == (int) possibleC );
+    }
+}
+
+class exes26{
+    public static void main(String[] args) {
+        int[] array1 = {5,1,9,0,1,8,3};
+        int[] array2 = {4,2,7,8};
+        int[] result = sumEachCellByIndex(array1,array2);
+        exes12.printArray(result);
+    }
+    public static int[] sumEachCellByIndex(int[] array1 , int[] array2){
+        int maxLength = Math.max(array1.length,array2.length );
+
+        int[] temp1 = new int[maxLength];
+        for (int i = 0; i < array1.length; i++) {
+            temp1[i] = array1[i];
+        }
+
+        int[] temp2 = new int[maxLength];
+        for (int i = 0; i < array2.length; i++) {
+            temp2[i] = array2[i];
+        }
+
+        for (int i = 0; i < temp1.length; i++) {
+            temp1[i] = temp1[i] + temp2[i];
+        }
+        return temp1;
+    }
+
 }
 
