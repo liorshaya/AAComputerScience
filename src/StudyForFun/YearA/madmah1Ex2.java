@@ -750,7 +750,7 @@ class exes23{
 class exes24{
     public static void main(String[] args) {
         int[] array1 = {1,2,3,4};
-        int[] array2 = {3,4,5,6};
+        int[] array2 = {3,4,5,6,3};
         int[] result = union(array1,array2);
         exes12.printArray(result);
         System.out.println();
@@ -822,6 +822,7 @@ class exes24{
             for (int j = 0; j < array2.length; j++) {
                 if(array1[i] == array2[j]){
                     count++;
+                    break;
                 }
             }
         }
@@ -831,12 +832,53 @@ class exes24{
         for (int i = 0; i < array1.length; i++) {
             for (int j = 0; j < array2.length; j++) {
                 if(array1[i] == array2[j]){
-                    newArray[index] = array1[i];
-                    index++;
+                    boolean isExist = false;
+
+                    for (int k = 0; k < index; k++) {
+                        if(newArray[k] == array1[i]){
+                            isExist = true;
+                            break;
+                        }
+                    }
+                    if(!isExist){
+                        newArray[index] = array1[i];
+                        index++;
+                    }
+                    break;
                 }
             }
         }
         return newArray;
+    }
+}
+
+class exes25{
+    public static void main(String[] args) {
+        boolean result = isPitagorikTriple(10,8,6);
+        System.out.println(result);
+    }
+    public static boolean isPitagorikTriple(int num1 , int num2 , int num3){
+        int max = Math.max(num1 , Math.max(num2,num3));
+        int min = Math.min(num1 , Math.min(num2,num3));
+
+        if(num1 != max && num1 != min){
+            if((int)Math.pow( num1,2) + (int)Math.pow(min,2) == (int)Math.pow(max,2)  ){
+                return true;
+            }
+            return false;
+        }
+        else if(num2 != max && num2 != min){
+            if((int)Math.pow( num2,2) + (int)Math.pow(min,2) == (int)Math.pow(max,2) ){
+                return true;
+            }
+            return false;
+        }
+        else{
+            if((int)Math.pow( num3,2) + (int)Math.pow(min,2) == (int)Math.pow(max,2)  ){
+                return true;
+            }
+        }
+        return false;
     }
 }
 
