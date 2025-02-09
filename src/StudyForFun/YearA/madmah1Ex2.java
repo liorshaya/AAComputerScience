@@ -342,7 +342,7 @@ class exes10{
 class exes11{
     public static void main(String[] args) {
         int[] array = {5,8,1,9};
-        int number = circulateArray(array,-7);
+        int number = circulateArray(array,-153);
         System.out.println(number);
     }
     public static int circulateArray(int[] array, int index){
@@ -352,6 +352,9 @@ class exes11{
 
         }
         else{
+            if(index % array.length == 0){
+                return array[0];
+            }
             int negIndex = (index % array.length)+array.length;
             numberInIndex = array[negIndex];
         }
@@ -396,7 +399,7 @@ class exes13{
         boolean result =isPrimary(96);
         System.out.println(result);
 
-        String result2 = perukLegormin(12600);
+        String result2 = perukLegormin(18);
         System.out.println(result2);
     }
     public static boolean isPrimary(int number){
@@ -996,18 +999,20 @@ class exes29{
     }
 
     public static int pow(int basis, int hezka){
-        for (int i = 1; i < hezka; i++) {
-            basis *= basis;
+        int result = 1;
+        for (int i = 0; i < hezka; i++) {
+            result *= basis;
         }
-        return basis;
+        return result;
     }
 
     public static void powUpTo1000(int number){
-
-        for (int i = 1; number < 999; i++) {
-            int check = pow(number,i);
-            number = check;
-            System.out.println(check);
+        int result = 1;
+        int i = 1;
+        while(result * number < 1000){
+            result *= number;
+            System.out.println(result + "(" + number + "^" + i +")");
+            i++;
         }
     }
 }
