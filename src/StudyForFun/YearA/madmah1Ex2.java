@@ -996,18 +996,20 @@ class exes29{
     }
 
     public static int pow(int basis, int hezka){
-        for (int i = 1; i < hezka; i++) {
-            basis *= basis;
+        int result = 1;
+        for (int i = 0; i < hezka; i++) {
+            result *= basis;
         }
-        return basis;
+        return result;
     }
 
     public static void powUpTo1000(int number){
-
-        for (int i = 1; number < 999; i++) {
-            int check = pow(number,i);
-            number = check;
-            System.out.println(check);
+        int result = 1;
+        int i = 1;
+        while(result * number < 1000){
+            result *= number;
+            System.out.println(result + "(" + number + "^" + i +")");
+            i++;
         }
     }
 }
