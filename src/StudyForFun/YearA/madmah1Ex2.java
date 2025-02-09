@@ -899,7 +899,7 @@ class exes26{
     public static void main(String[] args) {
         int[] array1 = {5,1,9,0,1,8,3};
         int[] array2 = {4,2,7,8};
-        int[] result = sumEachCellByIndex(array1,array2);
+        int[] result = sumEachCellByIndex1(array1,array2);
         exes12.printArray(result);
     }
     public static int[] sumEachCellByIndex(int[] array1 , int[] array2){
@@ -920,6 +920,40 @@ class exes26{
         }
         return temp1;
     }
+    public static int[] sumEachCellByIndex1(int[] array1 , int[] array2) {
+        int maxLength = Math.max(array1.length,array2.length );
 
+        int[] result = new int[maxLength];
+
+        for (int i = 0; i < result.length; i++) {
+            int num1 = 0;
+            int num2 = 0;
+            if(i < array1.length){
+                num1 = array1[i];
+            }
+            if(i < array2.length){
+                num2 = array2[i];
+            }
+            result[i] = num1 + num2;
+        }
+        return result;
+    }
+}
+
+class exes27{
+    public static void main(String[] args) {
+        String text = "Hello";
+        checkCharsCount(text);
+    }
+    public static void checkCharsCount(String text){
+        int count = 1;
+        for (int i = 0; i < text.length()-1; i++) {
+            if(text.charAt(i) ==  text.charAt(i+1)){
+                count++;
+                i++;
+            }
+            System.out.print(text.charAt(i) + "" +count);
+        }
+    }
 }
 
