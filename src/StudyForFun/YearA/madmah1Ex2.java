@@ -734,7 +734,7 @@ class exes23{
         int sum =0;
         int biggestNum = 0;
         int currNum = 0;
-        while (sum < limit){
+        while (sum <= limit){
             System.out.println("Enter a number:");
             currNum = scn.nextInt();
             sum += currNum;
@@ -747,4 +747,59 @@ class exes23{
     }
 }
 
+class exes24{
+    public static void main(String[] args) {
+        int[] array1 = {1,2,3,4};
+        int[] array2 = {3,4,5,6};
+        int[] result = union(array1,array2);
+        exes12.printArray(result);
+
+        int[] result2 = uniqueUnion(array1,array2);
+
+    }
+    public static int[] union (int[] array1, int[] array2){
+        int length = array1.length + array2.length;
+
+        int[] newArray = new int[length];
+
+        int index =0;
+        for (int i = 0; i < array1.length; i++) {
+            newArray[index] = array1[i];
+            index++;
+        }
+
+        for (int i = 0; i < array2.length; i++) {
+            newArray[index] = array2[i];
+            index++;
+        }
+
+        return newArray;
+    }
+
+    public static int[] uniqueUnion (int[] array1, int[] array2){
+        int count = 0;
+        for (int i = 0; i < array1.length; i++) {
+            for (int j = 0; j < array2.length; j++) {
+                if(array1[i] == array2[j]){
+                    count++;
+                }
+            }
+        }
+
+        int[] newArray = new int[array1.length+array2.length-count];
+
+        int index = 0;
+        for (int i = 0; i < array1.length; i++) {
+            newArray[index] = array1[i];
+            index++;
+        }
+        for (int i = 0; i < array2.length-count; i++) {
+
+        }
+
+
+
+        return newArray;
+    }
+}
 
