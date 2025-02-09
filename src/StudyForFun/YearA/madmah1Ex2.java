@@ -753,8 +753,14 @@ class exes24{
         int[] array2 = {3,4,5,6};
         int[] result = union(array1,array2);
         exes12.printArray(result);
+        System.out.println();
 
         int[] result2 = uniqueUnion(array1,array2);
+        exes12.printArray(result2);
+        System.out.println();
+
+        int[] result3 = intersection(array1,array2);
+        exes12.printArray(result3);
 
     }
     public static int[] union (int[] array1, int[] array2){
@@ -793,12 +799,43 @@ class exes24{
             newArray[index] = array1[i];
             index++;
         }
-        for (int i = 0; i < array2.length-count; i++) {
+        for (int i = 0; i < array2.length; i++) {
+            boolean isExist = false;
+            for (int j = 0; j < array1.length; j++) {
+                if(array2[i] == array1[j]){
+                    isExist = true;
+                    break;
+                }
+            }
+            if(!isExist){
+                newArray[index] = array2[i];
+                index++;
+            }
+        }
+        return newArray;
+    }
 
+    public static int[] intersection (int[] array1, int[] array2){
+        int count = 0;
+
+        for (int i = 0; i < array1.length; i++) {
+            for (int j = 0; j < array2.length; j++) {
+                if(array1[i] == array2[j]){
+                    count++;
+                }
+            }
         }
 
-
-
+        int[] newArray = new int[count];
+        int index = 0;
+        for (int i = 0; i < array1.length; i++) {
+            for (int j = 0; j < array2.length; j++) {
+                if(array1[i] == array2[j]){
+                    newArray[index] = array1[i];
+                    index++;
+                }
+            }
+        }
         return newArray;
     }
 }
