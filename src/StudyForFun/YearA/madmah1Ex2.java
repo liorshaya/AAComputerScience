@@ -970,14 +970,14 @@ class exes27{
 
 class exes28{
     public static void main(String[] args) {
-        int[] array = {2,1,7,5,2,1,9,3,2};
+        int[] array = {4,4,4,4};
         boolean result = isSpecialArray(array);
         System.out.println(result);
     }
     public static boolean isSpecialArray(int[] array){
         for (int i = 0; i < array.length; i++) {
-            int count = 1;
-            for (int j = i+1; j < array.length; j++) {
+            int count = 0;
+            for (int j = 0; j < array.length; j++) {
                 if(array[i] == array[j]){
                     count++;
                 }
@@ -990,3 +990,24 @@ class exes28{
     }
 }
 
+class exes29{
+    public static void main(String[] args) {
+        powUpTo1000(3);
+    }
+
+    public static int pow(int basis, int hezka){
+        for (int i = 1; i < hezka; i++) {
+            basis *= basis;
+        }
+        return basis;
+    }
+
+    public static void powUpTo1000(int number){
+
+        for (int i = 1; number < 999; i++) {
+            int check = pow(number,i);
+            number = check;
+            System.out.println(check);
+        }
+    }
+}
