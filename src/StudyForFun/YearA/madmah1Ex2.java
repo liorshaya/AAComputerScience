@@ -943,17 +943,50 @@ class exes26{
 class exes27{
     public static void main(String[] args) {
         String text = "Hello";
-        checkCharsCount(text);
+        String result = checkCharsCount(text);
+        System.out.println(result);
     }
-    public static void checkCharsCount(String text){
-        int count = 1;
-        for (int i = 0; i < text.length()-1; i++) {
-            if(text.charAt(i) ==  text.charAt(i+1)){
-                count++;
-                i++;
+    public static String checkCharsCount(String text){
+
+        String result ="";
+
+
+
+        for (int i = 0; i < text.length(); i++) {
+            int count = 1;
+            for (int j = i+1; j < text.length(); j++) {
+                if(text.charAt(i) == text.charAt(j)){
+                    count++;
+                }
             }
-            System.out.print(text.charAt(i) + "" +count);
+            if(result.contains(text.charAt(i)+"")){
+                continue;
+            }
+            result += text.charAt(i) + "" +count;
         }
+        return result;
+    }
+}
+
+class exes28{
+    public static void main(String[] args) {
+        int[] array = {2,1,7,5,2,1,9,3,2};
+        boolean result = isSpecialArray(array);
+        System.out.println(result);
+    }
+    public static boolean isSpecialArray(int[] array){
+        for (int i = 0; i < array.length; i++) {
+            int count = 1;
+            for (int j = i+1; j < array.length; j++) {
+                if(array[i] == array[j]){
+                    count++;
+                }
+            }
+            if(array[i] == count){
+                return true;
+            }
+        }
+        return false;
     }
 }
 
