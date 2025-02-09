@@ -673,20 +673,78 @@ class exes21{
     }
     public static void statisticChars(String text){
 
-        String tempText = text.toUpperCase();
+        text = text.toUpperCase();
+        String checkedChars = "";
+
+
         for (int i = 0; i < text.length(); i++) {
+            char currChar = text.charAt(i);
+
+            if(currChar == ' ' || checkedChars.indexOf(currChar) != -1){
+                continue;
+            }
             int count = 1;
-            for (int j = i+1; j < tempText.length(); j++) {
-                if(tempText.charAt(i) == tempText.charAt(j) ){
+            for (int j = i+1; j < text.length(); j++) {
+                if(currChar == text.charAt(j) ){
                     count++;
                 }
             }
-            System.out.println(tempText.charAt(i) + "-" + count);
+            System.out.println(text.charAt(i) + "-" + count);
+            checkedChars += currChar;
         }
 
     }
 }
 
+class exes22{
+    public static void main(String[] args) {
+        primeryNumbersInRange(1,100);
+    }
 
+    public static void primeryNumbersInRange(int num1 , int num2){
+        int max = Math.max(num1,num2);
+        int min = Math.min(num1,num2);
+
+        if(min < 2){
+            min = 2;
+        }
+        for (int i = min; i <= max; i++) {
+            if(isPrimaryNumber(i)){
+                System.out.println(i);
+            }
+        }
+    }
+    public static boolean isPrimaryNumber(int number){
+        for (int i = 2; i <=Math.sqrt(number) ; i++) {
+            if(number % i == 0){
+                return false;
+            }
+        }
+        return true;
+    }
+}
+
+class exes23{
+    public static void main(String[] args) {
+        int rsult = sumToLimit(20);
+        System.out.println(rsult);
+    }
+    public static int sumToLimit(int limit){
+        Scanner scn = new Scanner(System.in);
+        int sum =0;
+        int biggestNum = 0;
+        int currNum = 0;
+        while (sum < limit){
+            System.out.println("Enter a number:");
+            currNum = scn.nextInt();
+            sum += currNum;
+            if(currNum > biggestNum){
+                biggestNum = currNum;
+            }
+        }
+        return biggestNum;
+
+    }
+}
 
 
