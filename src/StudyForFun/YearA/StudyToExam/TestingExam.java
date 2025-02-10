@@ -1,5 +1,7 @@
 package StudyForFun.YearA.StudyToExam;
 
+import java.util.Scanner;
+
 public class TestingExam {
     public static void main(String [] args){
         int[] array1 = {1,5,8,3,7,1,3,6,2,7,1,6,7,1,7,8,1,2,1,5,7,7,1,1,3};
@@ -200,10 +202,10 @@ class exas5{
 
 class exas6{
     public static void main(String [] args){
-        boolean result =isPrimary(96);
+        boolean result =isPrimary(97);
         System.out.println(result);
 
-        String result2 = perukLegormim(18);
+        String result2 = perukLegormim(97);
         System.out.println(result2);
     }
 
@@ -249,5 +251,144 @@ class exas6{
         }
         calculation += " = " + temp;
         return calculation;
+    }
+}
+
+class exas8{
+    public static void main(String [] args){
+        String text = "רבע הלילה עבר";
+        boolean result = isPolindrom(text);
+        System.out.println(result);
+    }
+
+    public static boolean isPolindrom(String text){
+
+
+        for(int i = 0 , j = text.length()-1 ; i < j ; i++ , j--){
+            if(text.charAt(i) != text.charAt(j)){
+                return false;
+            }
+        }
+        return true;
+    }
+}
+
+class exas9{
+    public static void main(String [] args){
+        Scanner scn = new Scanner(System.in);
+
+        System.out.println("Enter a number");
+        int number = scn.nextInt();
+        if(number > 99 && number < 1000){
+            boolean result = isUpOrDownNum(number);
+            System.out.println(result);
+        }
+        else{
+            System.out.println("The number is out of range.");
+        }
+    }
+
+    public static boolean isUpOrDownNum(int number){
+        int unit = number % 10;
+        int tens = number/10 % 10;
+        int hun = number/100;
+
+        if(unit + 1 == tens && tens + 1 == hun){
+            return true;
+        }
+        else if(hun + 1 == tens && tens + 1 == unit){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+}
+
+class exas10{
+    public static void main(String[] args) {
+        int[] array={1,6,7,4,7,98,655,454};
+        int result = getSecondHighestNumber(array);
+        System.out.println(result);
+    }
+    public static int getSecondHighestNumber (int[] array) {
+        int max = array[0];
+        int secMax = array[0];
+        for (int i = 0; i < array.length; i++) {
+            if(array[i] > max){
+                max = array[i];
+            }
+        }
+        boolean foundSecondMax = false;
+        for (int i = 0; i < array.length; i++) {
+            if(array[i] != max){
+                if (!foundSecondMax || array[i] > secMax) {
+                    secMax = array[i];
+                    foundSecondMax = true;
+                }
+            }
+        }
+
+        return secMax;
+    }
+}
+
+class exas11{
+    public static void main(String [] args){
+
+
+    }
+
+    public static int[] checkSizeArrayByNum(int[] array1 , int[] array2 , int num){
+
+        double numDigitUp = Math.pow(10,num);
+        double numDigDown = Math.pow(10, num-1);
+
+        int countArray1 = 0;
+        int countArray2 = 0;
+
+        for(int i = 0 ; i < array1.length ; i++){
+            if(array1[i] < numDigitUp && array1[i] > numDigDown){
+                countArray1++;
+            }
+        }
+
+        for(int i = 0 ; i < array2.length ; i++){
+            if(array2[i] < numDigitUp && array2[i] > numDigDown){
+                countArray1++;
+            }
+        }
+
+        boolean isArray2Bigger = false;
+        int newLengthSize = countArray1;
+
+        if(newLengthSize < countArray2){
+            newLengthSize = countArray2;
+            isArray2Bigger = true;
+        }
+
+        int[] newArray = new int[newLengthSize];
+
+        int index = 0;
+
+        for(int i = 0 ; i < newArray.length ; i++){
+            if(!isArray2Bigger){
+                for(int i = 0 ; i < array1.length ; i++){
+                    if(array1[i] < numDigitUp && array1[i] > numDigDown){
+                        newArray[index] = array1[i];
+                        index++;
+                    }
+                }
+            }
+            else{
+                for(int i = 0 ; i < array1.length ; i++){
+                    if(array2[i] < numDigitUp && array2[i] > numDigDown){
+                        newArray[index] = array1[i];
+                        index++;
+                    }
+                }
+            }
+        }
+        return newArray;
     }
 }
