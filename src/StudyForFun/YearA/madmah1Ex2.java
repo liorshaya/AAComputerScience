@@ -45,25 +45,31 @@ class exes3{
         int[] array1 = {5435,32,355,56543,54564,323666,423,434,564,323,545};
         int[] array2 = {3434,45,365655,56767543,454,32,4,43,78,443,24344545};
 
-        int[] result = createNewArrayWithNumDig(array1,array2,6);
+        int[] result = createNewArrayWithNumDig(array1,array2,3);
         printArray(result);
 
     }
     public static int[] createNewArrayWithNumDig(int[] array1 , int[] array2, int num){
         int numDigit = 0;
+        int numDigitDown = 0;
         if(num != 1) {
-            numDigit = (int) Math.pow(10, num) - 1;
+            numDigit = (int) Math.pow(10, num) ;
+            numDigitDown = (int) Math.pow(10, num-1);
+        }
+        else{
+            numDigit = 10;
+            numDigitDown = 0;
         }
 
         int countArray1 = 0;
         for (int i = 0; i < array1.length; i++) {
-            if(array1[i] > numDigit){
+            if(array1[i] < numDigit && array1[i] > numDigitDown){
                 countArray1++;
             }
         }
         int countArray2 = 0;
         for (int i = 0; i < array2.length; i++) {
-            if(array2[i] > numDigit){
+            if(array2[i] < numDigit && array2[i] > numDigitDown){
                 countArray2++;
             }
         }
@@ -71,13 +77,13 @@ class exes3{
         int[] newArray = new int[countArray1+countArray2];
         int index = 0;
         for (int i = 0; i < array1.length; i++) {
-            if(array1[i] > numDigit){
+            if(array1[i] < numDigit && array1[i] > numDigitDown){
                 newArray[index] = array1[i];
                 index++;
             }
         }
         for (int i = 0; i < array2.length; i++) {
-            if(array2[i] > numDigit) {
+            if(array2[i] < numDigit && array2[i] > numDigitDown) {
                 newArray[index] = array2[i];
                 index++;
             }
@@ -94,7 +100,7 @@ class exes3{
 
 class exes4{
     public static void main(String[] args) {
-        int[] array = {1,2,5,-5,3,-7,2};
+        int[] array = {1,2,-5,5,-3,-7,2};
         boolean result = isZigzagArray(array);
         System.out.println(result);
         boolean result2 = isSubArrayBySize(array,4);
@@ -125,11 +131,12 @@ class exes4{
             }
             else{
                 count++;
+                if(count == size){
+                    return true;
+                }
             }
         }
-        if(count >= size){
-            return true;
-        }
+
         return false;
     }
 }
@@ -346,7 +353,7 @@ class exes11{
         System.out.println(number);
     }
     public static int circulateArray(int[] array, int index){
-        int numberInIndex = 0;
+        int numberInIndex;
         if(index >= 0){
             numberInIndex = array[index % array.length];
 
