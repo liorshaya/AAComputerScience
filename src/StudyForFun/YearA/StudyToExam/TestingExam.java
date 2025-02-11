@@ -373,7 +373,7 @@ class exas11{
 
         for(int i = 0 ; i < newArray.length ; i++){
             if(!isArray2Bigger){
-                for(int i = 0 ; i < array1.length ; i++){
+                for(int j = 0 ; i < array1.length ; i++){
                     if(array1[i] < numDigitUp && array1[i] > numDigDown){
                         newArray[index] = array1[i];
                         index++;
@@ -381,8 +381,8 @@ class exas11{
                 }
             }
             else{
-                for(int i = 0 ; i < array1.length ; i++){
-                    if(array2[i] < numDigitUp && array2[i] > numDigDown){
+                for(int j = 0 ; j < array1.length ; j++){
+                    if(array2[j] < numDigitUp && array2[j] > numDigDown){
                         newArray[index] = array1[i];
                         index++;
                     }
@@ -390,5 +390,23 @@ class exas11{
             }
         }
         return newArray;
+    }
+}
+
+class exas12{
+    public static void main(String[] args) {
+        String[] result = {"dfdf","fgfdgfdgdfg","fhghghdfghhg","fgfdsdfdsfsdf","sasfdfdsf","dfsdfghgf","dsfsdss"};
+        double r = stringAverageSize(result);
+        System.out.println(r);
+    }
+    public static double stringAverageSize (String[] names) {
+        double sum = 0;
+        int lengthArray = names.length;
+        for (int i = 0; i < names.length; i++) {
+            sum += names[i].length();
+        }
+        double beforeResult = sum/lengthArray;
+        double check = Math.round(beforeResult *100)/100.0;
+        return check;
     }
 }
