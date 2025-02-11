@@ -182,7 +182,7 @@ class exas4{
 class exas5{
     public static void main(String [] args){
         int[] array = {5,8,1,9};
-        int number = circulationArray(array,-6);
+        int number = circulationArray(array,-8);
         System.out.println(number);
     }
 
@@ -191,21 +191,21 @@ class exas5{
             return array[number % array.length];
         }
         else{
-            if(number % array.length == 0){
-                return array[0];
-            }
+//            if(number % array.length == 0){
+//                return array[0];
+//            }
 
-            return array[(number % array.length)+ array.length];
+            return array[(number % array.length + array.length) % array.length];
         }
     }
 }
 
 class exas6{
     public static void main(String [] args){
-        boolean result =isPrimary(97);
+        boolean result =isPrimary(18);
         System.out.println(result);
 
-        String result2 = perukLegormim(97);
+        String result2 = perukLegormim(24);
         System.out.println(result2);
     }
 
@@ -408,5 +408,29 @@ class exas12{
         double beforeResult = sum/lengthArray;
         double check = Math.round(beforeResult *100)/100.0;
         return check;
+    }
+}
+
+class exas13{
+    public static void main(String[] args) {
+        int[] array = {1,2,3,1};
+        int[] array2 = {1,2,3,1};
+        boolean result = areArraysEqual(array,array2);
+        System.out.println(result);
+    }
+    public static boolean areArraysEqual(int[] arr1, int[] arr2) {
+        if (arr1.length != arr2.length) return false;
+
+        for (int i = 0; i < arr1.length; i++) {
+            int count1 = 0, count2 = 0;
+
+            for (int j = 0; j < arr1.length; j++) {
+                if (arr1[i] == arr1[j]) count1++; // ספירה במערך הראשון
+                if (arr1[i] == arr2[j]) count2++; // ספירה במערך השני
+            }
+
+            if (count1 != count2) return false; // אם מספר המופעים של הערך שונה – המערכים אינם זהים
+        }
+        return true;
     }
 }
