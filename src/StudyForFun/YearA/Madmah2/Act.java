@@ -6,7 +6,7 @@ public class Act {
     private Actor[] actors;
     private int level;
 
-    public Act(String name , int length , Actor[] actors , int level){
+    public Act(String name , int length , int level){
         this.name = name;
         this.length = length;
         this.actors = new Actor[0];
@@ -44,5 +44,20 @@ public class Act {
         }
         return false;
     }
+
+    public static String mostExpActor(Actor[] actors){
+        String mostActorName = actors[0].getName();
+        int mostActs = actors[0].getActs();
+
+        for (int i = 0; i < actors.length; i++) {
+            if(actors[i].getActs() > mostActs){
+                mostActs = actors[i].getActs();
+                mostActorName = actors[i].getName();
+            }
+        }
+        return mostActorName;
+    }
+
+
 
 }
