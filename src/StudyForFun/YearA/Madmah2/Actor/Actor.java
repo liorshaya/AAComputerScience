@@ -1,4 +1,4 @@
-package StudyForFun.YearA.Madmah2;
+package StudyForFun.YearA.Madmah2.Actor;
 
 public class Actor {
     private String name;
