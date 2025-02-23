@@ -857,6 +857,7 @@ class ex44{
         System.out.println();
         int[] result2 = shift(array,false,2);
         ex26.printArray(result2);
+
     }
     public static int[] shiftRight(int[] array){
         int lastPlace = array[array.length-1];
@@ -896,6 +897,15 @@ class ex44{
         }
         return array;
     }
+
+    public static int[] shiftRigthNTimes(int[] arr, int n){
+        int[] result = arr;
+        for (int i = 0; i < n; i++) {
+            result = shiftRight(result);
+        }
+        return result;
+    }
+
 }
 
 class ex45{
