@@ -4,7 +4,7 @@ public class Main {
     public static void main(String[] args) {
 
     }
-    public static String getMaxTrippleDoubler(Basketballer[] players){
+    public static String getMaxTrippleDoublerr(Basketballer[] players){
         String namePlayerMost = players[0].getName();
         int maxCount = 0;
         for (int i = 0; i < players.length ;i++) {
