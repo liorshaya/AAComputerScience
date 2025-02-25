@@ -12,7 +12,7 @@ public class Act {
         this.actors = new Actor[0];
         this.level = level;
     }
-    //test
+
     public boolean addActor(Actor toad){
         boolean toAdd = false;
         if(this.level == 0){
