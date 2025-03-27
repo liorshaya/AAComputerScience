@@ -13,8 +13,8 @@ public class MainScene extends JPanel {
     private int rightPaddleY = 250;
     private int ballX = 0;
     private int ballY = 0;
-    private int ballSpeedX = 5;// Added ball speed variable
-    private int ballSpeedY = 1;
+    private double ballSpeedX = 5;// Added ball speed variable
+    private double ballSpeedY = 1;
     private boolean wPressed = false;
     private boolean sPressed = false;
     private boolean upPressed = false;
@@ -22,7 +22,9 @@ public class MainScene extends JPanel {
     private int leftScore = 0; // Added left score variable
     private int rightScore = 0; // Added right score variable
     private Timer gameTimer;
-    private boolean gameStarted = false; // New variable
+    private boolean gameStarted = false;
+    private int hitCounter = 0;
+
 
     public MainScene() {
         setFocusable(true);
@@ -75,35 +77,59 @@ public class MainScene extends JPanel {
         });
 
         gameTimer = new Timer(10, e -> {
-            if (!gameStarted) return; // Stop timer if game has not started
+            if (!gameStarted) return;// Stop timer if game has not started
+            if(upPressed && rightPaddleY > 0){
+                rightPaddleY -= 10;
+            }
+            if(downPressed && rightPaddleY < getHeight() -100){
+                rightPaddleY += 10;
+            }
+            if(wPressed && leftPaddleY > 0){
+                leftPaddleY -= 10;
 
-            if (wPressed) leftPaddleY -= 5;
-            if (sPressed) leftPaddleY += 5;
-            if (upPressed) rightPaddleY -= 5;
-            if (downPressed) rightPaddleY += 5;
+            }
+            if (sPressed && leftPaddleY < getHeight() -100){
+                leftPaddleY += 10;
+            }
+
+
 
             // Check for ball collision with paddles
             // Collision with left paddle
             if (ballX <= 60 && ballY + 20 >= leftPaddleY && ballY <= leftPaddleY + 100) {
                 ballSpeedX *= -1;
-                ballX = 60; // Prevent sticking to paddle
+                ballX = 60;
+                hitCounter++;
+                if(hitCounter != 0 && hitCounter % 5 == 0){
+                    ballSpeedX *= 1.3;
+                    ballSpeedY *= 1.3;
+                }
             }
+
 
             // Collision with right paddle
             if (ballX + 20 >= getWidth() - 60 && ballY + 20 >= rightPaddleY && ballY <= rightPaddleY + 100) {
                 ballSpeedX *= -1;
-                ballX = getWidth() - 80; // Prevent sticking to paddle
+                ballX = getWidth() - 80;
+                hitCounter++;
+                if(hitCounter != 0 && hitCounter % 5 == 0){
+                    ballSpeedX *= 1.3;
+                    ballSpeedY *= 1.3;
+                }
             }
+
 
             if (ballX < 0) {
                 rightScore++;
                 checkWin();
                 resetBall();
-            } else if (ballX > getWidth()) {
+            } else if (ballX > getWidth() -50) {
                 leftScore++;
                 checkWin();
                 resetBall();
             }
+
+
 
             ballX += ballSpeedX;// Move the ball
             ballY += ballSpeedY;
@@ -135,7 +161,13 @@ public class MainScene extends JPanel {
     private void resetBall() {
         ballX = getWidth() / 2 - 10;
         ballY = getHeight() / 2 - 10;
-        ballSpeedX *= -1;
+
+        ballSpeedX = 5 * (Math.random() < 0.5 ? 1 : -1);
+        ballSpeedY = 2 * (Math.random() < 0.5 ? 1 : -1);
+
+
+        hitCounter = 0;
+
     }
 
     @Override
@@ -146,7 +178,7 @@ public class MainScene extends JPanel {
         if (gameStarted) {
             g.fillOval(ballX, ballY, 20, 20);
         }
-        g.setFont(new Font("Arial", Font.BOLD, 24));
-        g.drawString(leftScore + " : " + rightScore, getWidth() / 2 - 30, 30);
+        g.setFont(new Font("Arial", Font.BOLD, 40));
+        g.drawString(leftScore + " : " + rightScore, getWidth() / 2 - 30, 70);
     }
 }
