@@ -56,7 +56,7 @@ public class MainScene extends JPanel {
             @Override public void actionPerformed(ActionEvent e) { wPressed = false; }
         });
         am.put("S_PRESSED", new AbstractAction() {
-            @Override public void actionPerformed(ActionEvent e) { sPressed = true; }
+            @Override public void actionPerformed(ActionEvent e) {sPressed = true; }
         });
         am.put("S_RELEASED", new AbstractAction() {
             @Override public void actionPerformed(ActionEvent e) { sPressed = false; }
