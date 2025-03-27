@@ -30,11 +30,11 @@ public class lecture {
 
 class ex2{
     public static void main(String[] args) {
-       typing(5,6);
+       typing(523,1343);
     }
     public static void typing(int num1 , int num2){
         int sum = num1 + num2;
-        String fullText = "The result is: " + sum;
+        String fullText = "The result of " + num1 + " + " + num2 + " is: " + sum;
 
         Thread t1 = new Thread(()->{
             Random rnd = new Random();
@@ -48,7 +48,6 @@ class ex2{
                 }
             }
 
-            System.out.println();
         });
         t1.start();
     }
