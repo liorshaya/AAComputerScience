@@ -31,7 +31,7 @@ public class MainScene extends JPanel {
         requestFocusInWindow();
 
         JButton startButton = new JButton("Start Game");
-        startButton.setFont(new Font("Arial", Font.BOLD, 18));
+        startButton.setFont(new Font("Arial", Font.BOLD, 20));
         startButton.addActionListener(e -> {
             gameStarted = true;
             startButton.setVisible(false);
@@ -101,8 +101,8 @@ public class MainScene extends JPanel {
                 ballX = 60;
                 hitCounter++;
                 if(hitCounter != 0 && hitCounter % 5 == 0){
-                    ballSpeedX *= 1.3;
-                    ballSpeedY *= 1.3;
+                    ballSpeedX *= 1.1;
+                    ballSpeedY *= 1.1;
                 }
             }
 
@@ -113,8 +113,8 @@ public class MainScene extends JPanel {
                 ballX = getWidth() - 80;
                 hitCounter++;
                 if(hitCounter != 0 && hitCounter % 5 == 0){
-                    ballSpeedX *= 1.3;
-                    ballSpeedY *= 1.3;
+                    ballSpeedX *= 1.1;
+                    ballSpeedY *= 1.1;
                 }
             }
 
