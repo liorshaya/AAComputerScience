@@ -137,11 +137,11 @@ public class MainScene extends JPanel {
             } else {
 
                 // שליטה של מחשב
-                int aiSpeed;
+                double aiSpeed;
                 switch (difficulty) {
-                    case "easy" -> aiSpeed = 2;
-                    case "hard" -> aiSpeed = 8;
-                    default -> aiSpeed = 5; // medium
+                    case "easy" -> aiSpeed = 1;
+                    case "hard" -> aiSpeed = 3;
+                    default -> aiSpeed = 2.5; // medium
                 }
                 if (ballX > getWidth() / 2) { // AI מגיב רק כשהכדור מתקרב אליו
                     int paddleCenter = rightPaddleY + 50;
@@ -196,8 +196,8 @@ public class MainScene extends JPanel {
                 ballSpeedY = -normalized * 5;
                 ballSpeedY += (Math.random() - 0.5);
 
-                if (Math.abs(ballSpeedY) < 1) {
-                    ballSpeedY = (ballSpeedY > 0) ? 1 : -1;
+                if (Math.abs(ballSpeedY) < 1.0) {
+                    ballSpeedY = (ballSpeedY >= 0) ? 1.0 : -1.0;
                 }
 
                 if(hitCounter != 0 && hitCounter % 5 == 0){
@@ -219,8 +219,8 @@ public class MainScene extends JPanel {
                 ballSpeedY = -normalized * 5;
                 ballSpeedY += (Math.random() - 0.5);
 
-                if (Math.abs(ballSpeedY) < 1) {
-                    ballSpeedY = (ballSpeedY > 0) ? 1 : -1;
+                if (Math.abs(ballSpeedY) < 1.0) {
+                    ballSpeedY = (ballSpeedY >= 0) ? 1.0 : -1.0;
                 }
 
                 if(hitCounter != 0 && hitCounter % 5 == 0){
@@ -246,7 +246,7 @@ public class MainScene extends JPanel {
             ballX += ballSpeedX;// Move the ball
             ballY += ballSpeedY;
             if (Math.abs(ballSpeedY) < 0.5) {
-                ballSpeedY = (ballSpeedY > 0) ? 0.5 : -0.5;
+                ballSpeedY = (ballSpeedY >= 0) ? 1.5 : -1.5;
             }
 
             // Bounce off top and bottom edges
