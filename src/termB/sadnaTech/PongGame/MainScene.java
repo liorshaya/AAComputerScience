@@ -161,7 +161,7 @@ public class MainScene extends JPanel {
                 }
 
                 // AI פשוט: נע לכיוון מרכז הכדור
-                int paddleCenter = rightPaddleY + 50;
+                int paddleCenter = rightPaddleY + 49;
                 int ballCenter = ballY + 10;
 
                 if (paddleCenter < ballCenter && rightPaddleY < getHeight() - 100) {
