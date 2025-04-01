@@ -6,6 +6,11 @@ public class Player {
     private int x;
     private int y;
 
+    public Player(){
+        this.x = 100;
+        this.y = 100;
+    }
+
     public int getX() {
         return x;
     }
