@@ -4,24 +4,24 @@ import javax.swing.*;
 import java.awt.*;
 
 public class MainContent extends JPanel {
-    private int player1;
+    private Player player1;
 
-    Player player = new Player();
+
     public MainContent(int x , int y , int width, int height){
         this.setBounds(x,y,width,height);
         this.setBackground(Color.red);
         this.setLayout(null);
-        player.setX(100);
-        player.setY(200);
+        this.player1 = new Player();
         this.moveRight();
+
 
     }
 
     public void moveRight(){
         new Thread(() ->{
             while(true){
-                this.player.moveRight();
-                this.player.moveDown();
+                this.player1.moveRight();
+                this.player1.moveDown();
                 try {
                     Thread.sleep(40);
                     repaint();
@@ -38,6 +38,6 @@ public class MainContent extends JPanel {
 //        graphics.fillRect(100,100,100,100);
 //        graphics.setColor(Color.BLUE);
 //        graphics.fillRect(200,100,100,100);
-        player.paint(graphics);
+        this.player1.paint(graphics);
     }
 }
