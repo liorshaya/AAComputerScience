@@ -24,4 +24,6 @@ public class Visitor {
         }
         preferences[4] = total;
     }
+
+
 }
